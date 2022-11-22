@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
   end
-  def components_alex
-    @grandma = Grandma.new
+
+  def alex
   end
 end
