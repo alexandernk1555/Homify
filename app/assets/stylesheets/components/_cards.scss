@@ -1,0 +1,64 @@
+.swipe_card {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(249, 246, 240, 0.07);
+  height: 80vh;
+
+
+  .swipe_card_header {
+    color: $white;
+  }
+
+  .swipe_card_image {
+    border-radius: 10px;
+    height: 75%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+    .swipe_card_description {
+      color: $white;
+      opacity: 0.7;
+      font-weight: lighter;
+      font-size: 16px;
+      line-height: 10px;
+  }
+}
+
+
+
+
+.profile_card {
+  overflow: hidden;
+  height: 20vh;
+  background: rgba(249, 246, 240, 0.07);
+  display: flex;
+  align-items: flex-start;
+  border-radius: 10px;
+}
+
+.profile_card img {
+  height: 100%;
+  width: 140px;
+  object-fit: cover;
+}
+
+.profile_card h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.profile_card p {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.profile_card_infos {
+  padding: 16px;
+  color: $white;
+}
