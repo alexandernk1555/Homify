@@ -1,0 +1,13 @@
+.button-secondary {
+  background-color: none;
+  color: $white;
+  cursor: pointer ;
+  font-weight: bold;
+  font-size: 20px;
+  width: 75%;
+  height: 65px;
+
+    &:active {
+      font-size: 22px;
+    }
+}

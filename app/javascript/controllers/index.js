@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import ButtonSearchesListingsController from "./button_searches_listings_controller"
+application.register("button-searches-listings", ButtonSearchesListingsController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
