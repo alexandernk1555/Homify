@@ -1,0 +1,27 @@
+.chat-card{
+    display: flex;
+    align-items: center;
+    margin-top: 2vh;
+    margin-left: 8vw;
+    background: $white;
+    padding: 8px 16px;
+    height: 80px;
+    padding: 0px;
+    border-radius: 100px 0px 0px 100px;
+
+
+
+  .chat-card-content {
+    flex-grow: 1;
+    padding: 0 0 0 5%;
+  }
+
+  .chat-card-content h3 {
+    margin: 0;
+  }
+
+  .chat-card-content p {
+    margin: 0;
+    color: rgba($black, 0.4);
+  }
+}
