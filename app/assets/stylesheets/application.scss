@@ -19,11 +19,13 @@ h1 {
 h2 {
   font-size: 36px;
   font-weight: 100;
+  color: $white;
 }
 
 h3 {
   font-size: 24px;
   font-weight: 100;
+  color: $white;
 }
 
 p {
@@ -32,4 +34,8 @@ p {
   color: #F9F6F0;
   opacity: 0.7;
   line-height: 10px;
+}
+
+.section-header{
+  margin-bottom: 20px;
 }
