@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :listings
   has_many :messages
-  validates :last_name, :first_name, :age, presence: true
+  validates :last_name, :first_name, presence: true
 end
