@@ -1,20 +1,22 @@
 .form {
+	padding-top: 20px;
+	padding-bottom: 20px;
 	width: 90%;
 	display: flex;
-	margin: 0 auto;	
+	width: 100%;	
 
 	.search_button {
 		border: none;
 		color: $green;
-		width: 40%;
+		width: 35%;
 		background-color: $black;
 		border-radius: 0px 10px 10px 0px;
 	}
 
 	.search_form {
-		width: 60%;
 		background-color: $white;
 		border-radius: 10px 0px 0px 10px;
+		width: 65%;
 	}
 	
 }

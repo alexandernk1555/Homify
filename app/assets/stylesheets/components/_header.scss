@@ -1,4 +1,5 @@
 .header-wrap{
+  // margin-top: 5px;
   position: fixed;
   top: 0px;
   left:0px;
@@ -12,8 +13,24 @@
   align-items: center;
   justify-content: center;
   margin: 1vh;
+  position: relative;
 
   img{
     height: 5vh;
   }
+}
+
+// .header-with-login a{
+//     position: fixed;
+//     top: 15px;
+//     left: 300px;
+// }
+
+.align-left {
+  position: absolute;
+  right: 0px;
+}
+
+.navbar-padding {
+  padding: 0px 25px;
 }
