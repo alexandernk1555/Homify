@@ -69,6 +69,7 @@ group :development do
   # gem "spring"
 end
 gem "devise"
+gem "simple_form", github: "heartcombo/simple_form"
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
