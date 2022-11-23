@@ -1,0 +1,47 @@
+.swipe_card {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(249, 246, 240, 0.07);
+  height: 70vh;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+
+
+  .swipe_card_header {
+    color: $white;
+  }
+
+  .swipe_card_image {
+    border-radius: 10px;
+    height: 75%;
+    // width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .swipe_card_description {
+    color: $white;
+    opacity: 0.7;
+    font-weight: lighter;
+    font-size: 16px;
+    line-height: 10px;
+  }
+
+  padding-left: 0px;
+}
+
+
+.swipe-li {
+  list-style: none;
+  width: 100%;
+  padding-left: 0px;
+
+}
+
+.swipe-ul {
+  list-style: none;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
