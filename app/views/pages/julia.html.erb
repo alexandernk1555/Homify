@@ -1,0 +1,9 @@
+<div class="container">
+  <%= form_with url: root_path, method: :get, class: "form" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control search_form"
+    %>
+    <%= submit_tag "search.", class: "search_button" %>
+  <% end %>
+</div>
