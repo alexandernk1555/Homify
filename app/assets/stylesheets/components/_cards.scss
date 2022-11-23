@@ -29,7 +29,7 @@
 
 
 
-.profile_card {
+.profile_item_card {
   overflow: hidden;
   height: 20vh;
   background: rgba(249, 246, 240, 0.07);
@@ -38,19 +38,19 @@
   border-radius: 10px;
 }
 
-.profile_card img {
+.profile_item_card img {
   height: 100%;
   width: 140px;
   object-fit: cover;
 }
 
-.profile_card h3 {
+.profile_item_card h3 {
   font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
 
-.profile_card p {
+.profile_item_card p {
   font-size: 16px;
   line-height: 1.4;
   opacity: .7;
@@ -58,7 +58,7 @@
   margin-top: 8px;
 }
 
-.profile_card_infos {
+.profile_item_card_infos {
   padding: 16px;
   color: $white;
 }
