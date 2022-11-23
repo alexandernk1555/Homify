@@ -1,7 +1,8 @@
 class ListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @listings = Listing.global_search(params[:query])
+    # @listings = Listing.global_search(params[:query])
+    @listings = Listing.all
   end
 
   def show
