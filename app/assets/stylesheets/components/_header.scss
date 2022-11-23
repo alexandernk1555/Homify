@@ -1,5 +1,5 @@
 .header-wrap{
-  margin-top: 5px;
+  // margin-top: 5px;
   position: fixed;
   top: 0px;
   left:0px;
@@ -25,3 +25,12 @@
 //     top: 15px;
 //     left: 300px;
 // }
+
+.align-left {
+  position: absolute;
+  right: 0px;
+}
+
+.navbar-padding {
+  padding: 0px 25px;
+}
