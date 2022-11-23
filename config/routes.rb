@@ -5,11 +5,14 @@ Rails.application.routes.draw do
   # get '/components_alex' => 'pages#components_alex'
   # Defines the root path route ("/")
   # root "articles#index"
-  get "listings", to: "listings#home"
+
+  resources :listings, only: [:index, :show]
+
   get "julia", to: "pages#julia"
   get "julia/:id", to: "pages#julia"
   get "/jorgen/", to: 'pages#jorgen'
   get '/alex/' => 'pages#alex'
   # Defines the root path route ("/")
   get "/alexander/", to: "pages#alexander"
+  get '/show/' => 'pages#show'
 end
