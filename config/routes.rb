@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # get '/components_alex' => 'pages#components_alex'
   # Defines the root path route ("/")
   # root "articles#index"
-
+  get "listings", to: "listings#home"
   get "julia", to: "pages#julia"
   get "julia/:id", to: "pages#julia"
   get "/jorgen/", to: 'pages#jorgen'
