@@ -12,7 +12,9 @@
 
   <body>
   <%= render 'components/header' %>
+  <div class="container">
     <%= yield %>
+  </div>
     <%= render 'components/navbar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
