@@ -18,8 +18,8 @@
       <%= f.input :furnished, label: "furnished", input_html: { class:"form-input" } %>
       <%= f.input :pets, label: "pets allowed", input_html: { class:"form-input" } %>
       <%= f.input :description, label: "description", input_html: { class:"form-input", :rows => 5 } %>
-      <%# <%= f.input :photo_url, as: :file, input_html: { multiple: true } %>
-      <%= f.button :submit, "save listing", input_html: { class:"button-primary" }  %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.button :submit, "save listing", input_html: { class:"button" }  %>
     <% end %>
   </div>
 </div>
