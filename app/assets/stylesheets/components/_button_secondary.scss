@@ -11,3 +11,17 @@
       font-size: 22px;
     }
 }
+
+
+.button-secondary-small {
+  background-color: none;
+  color: $white;
+  cursor: pointer ;
+  text-decoration: none;
+  font-size: 0.8rem;
+
+  &:active {
+    font-size: 1rem;
+    color: $green;
+  }
+}

@@ -2,10 +2,15 @@
   background-color: rgba($white, 0.07);
   border-radius: 10px;
   padding: 4%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   color: $white;
+  margin: 30px 0px 30px 0px;
+}
+
+.profile-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .profile-content{

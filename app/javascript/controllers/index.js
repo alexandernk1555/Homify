@@ -13,5 +13,8 @@ application.register("button-yes-no", ButtonYesNoController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import ProfileToggleController from "./profile_toggle_controller"
+application.register("profile-toggle", ProfileToggleController)
+
 import SwipeController from "./swipe_controller"
 application.register("swipe", SwipeController)
