@@ -1,0 +1,51 @@
+<h3>your profile</h3>
+ <div class="profile-header-card">
+  <div class="profile-image">
+  <% if @user.profile_picture.nil? %>
+      <div class="avatar-large" style="background-image:url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png)"></div>
+        <% else %>
+        <div class="avatar-large" style="background-image:url(<%= cl_image_path @user.profile_picture.key %>)"></div>
+        <% end %>
+        <h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
+  </div>
+    <div class="profile-content">
+      <p><%= @user.email %></p>
+      <p><%= "gender" %></p>
+      <p><%= "dob:" %></p>
+    </div>
+</div>
+<div data-controller="profile-toggle">
+  <div class="d-flex justify-content-center">
+    <div class="button-yes-no d-flex">
+      <span
+        class="col-6 d-flex justify-content-center button-yes chosen"
+        data-action="click->profile-toggle#searches"
+        data-profile-toggle-target="searches">
+        searches
+      </span>
+      <span
+        class="col-6 d-flex justify-content-center button-no"
+        data-action="click->profile-toggle#listings"
+        data-profile-toggle-target="listings">
+        listings
+        </span>
+    </div>
+  </div>
+
+
+  <div class="profile-searches-container" data-profile-toggle-target="hidesearches">
+    <div class="no-current-searches">
+      <p>You have no saved searches. <%= link_to "Click here", listings_path, class:"text-link" %> to get started.</p>
+    </div>
+  </div>
+
+  <div class="profile-listings-container hide-element" data-profile-toggle-target="hidelistings">
+    <div class="no-current-listings">
+      <p>You have no current listings. <%= link_to "Click here", listings_path, class:"text-link" %> to list your property.</p>
+    </div>
+  </div>
+</div>
+
+<%= link_to "log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"button-primary-small" %>
+<br>
+<%= link_to "edit profile", edit_user_registration_path, class:"button-secondary-small" %>
