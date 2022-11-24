@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :listings, only: [:index, :show]
-
+  resources :searches, only: [:new, :create, :edit, :update, :destroy]
+  
   get "julia", to: "pages#julia"
   get "julia/:id", to: "pages#julia"
   get "/jorgen/", to: 'pages#jorgen'
