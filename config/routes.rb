@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :listings, only: [:index, :show]
+  resources :listings, only: [:index, :show, :new, :create]
+  resources :users, only: [:show, :new, :create]
 
   get "julia", to: "pages#julia"
   get "julia/:id", to: "pages#julia"
