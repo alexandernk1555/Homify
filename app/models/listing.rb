@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
-  
+
   include PgSearch::Model
   pg_search_scope :global_search,
     against: [ :address, :description ],
@@ -12,5 +12,6 @@ class Listing < ApplicationRecord
 
   belongs_to :user
   has_many :matches
-  validates :price, :bedrooms, :bathrooms, :address, :photos, :property_type, :area_size, :floor, presence: true
+  has_many_attached :photos
+  validates :price, :bedrooms, :bathrooms, :address, :property_type, :area_size, :floor, presence: true
 end
