@@ -12,3 +12,6 @@ application.register("button-yes-no", ButtonYesNoController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import SwipeController from "./swipe_controller"
+application.register("swipe", SwipeController)

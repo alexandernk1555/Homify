@@ -1,5 +1,12 @@
 <div class= "header-wrap">
-  <div class ="header">
-    <%= image_tag "homify_logo.png" %>
+  <div class="navbar-padding">
+    <div class ="header">
+      <% if !user_signed_in? %>
+        <%= image_tag "homify_logo.png" %>
+        <a class="button-primary align-left">login</a>
+      <% else %>
+          <%= image_tag "homify_logo.png" %>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.pinimg.com/564x/ba/c1/c3/bac1c3bf86a6bcd31eb4c2acc2ac05dd.jpg);">
+    <%# <div class="container"> %>
+      <h1>find your dream home.</h1>
+    <%# </div> %>
+    <%= form_with url: listings_path, method: :get, class: "form" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control search_form"
+    %>
+    <%= submit_tag "search.", class: "search_button" %>
+  <% end %>
+  </div>

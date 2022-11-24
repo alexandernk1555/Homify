@@ -578,7 +578,7 @@ listing_18 = Listing.create!(
 	bathrooms: 1, 
 	address: "Prälat-Zistl-Straße 6, 80331 München, Deutschland", 
 	photos: "https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg", 
-	description: "1 bedroom apartment (434sq ft) comprises of a large double bedroom, bathroom, spacious reception room with rear facing views over Hay's Mews and a unique kitchenette. This beautiful prupose built building benefits from spacious living accommodation, lift service and on-site building manager.", 
+	description: "1 bedroom apartment comprises of a large double bedroom, bathroom, spacious reception room with rear facing views over Hay's Mews and a unique kitchenette. This beautiful prupose built building benefits from spacious living accommodation, lift service and on-site building manager.", 
 	property_type: "Apartment", 
 	area_size: 38,
 	floor: 5, 

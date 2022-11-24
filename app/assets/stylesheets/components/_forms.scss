@@ -1,0 +1,45 @@
+.form-control{
+  background-color: $white;
+}
+
+.form-control:focus{
+  background-color: $white;
+}
+
+.form-actions{
+  .btn{
+  color: $white;
+  }
+}
+
+.form-login{
+
+  a{
+    text-decoration: none;
+    color: $white;
+  }
+}
+
+.primary-devise{
+
+  .btn{
+  margin: 20px 30px 30px 0px;
+  font-size: 1.2rem;
+  padding: 0px;
+  color: $green;
+  }
+}
+
+.secondary-devise{
+
+  a{
+  font-weight:lighter;
+  font-size: 0.8rem;
+  }
+}
+.form-check-label{
+  color: $white;
+}
+ .form-check-input{
+  background-color: $white;
+ }
