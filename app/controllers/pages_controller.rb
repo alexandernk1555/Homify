@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     else
       @listings = Listing.all
     end
-  end
+  end 
 
 
   def julia
