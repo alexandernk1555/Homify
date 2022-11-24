@@ -3,9 +3,12 @@
     <div class ="header">
       <% if !user_signed_in? %>
         <%= image_tag "homify_logo.png" %>
-        <a class="button-primary align-left">login</a>
+        <%= link_to "login", new_user_session_path, class: "button-primary align-left" %>
+      <% elsif controller_name == 'listings' && action_name == 'index' && params[:search].present? %>
+        <%= image_tag "homify_logo.png" %>
+        <%= link_to "edit", edit_search_path(search), class: "button-primary align-left" %>           
       <% else %>
-          <%= image_tag "homify_logo.png" %>
+        <%= image_tag "homify_logo.png" %>
       <% end %>
     </div>
   </div>

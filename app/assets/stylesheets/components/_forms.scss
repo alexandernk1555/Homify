@@ -43,3 +43,21 @@
  .form-check-input{
   background-color: $white;
  }
+
+ .edit_search {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      color: $white;
+    }
+ } 
+
+ .new_search {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      color: $white;
+    }
+ }

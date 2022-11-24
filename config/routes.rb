@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :matches, only: [:create]
   end
 
+  resources :searches, only: [:new, :create, :edit, :update, :destroy]
   resources :users, only: [:show, :new, :create]
 
   get "julia", to: "pages#julia"

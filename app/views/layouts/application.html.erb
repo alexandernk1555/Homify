@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <%= render 'components/header' %>
+    <%= render 'components/header', search: params[:search] %>
     <div class="container">
       <%= yield %>
     </div>
