@@ -54,7 +54,7 @@ export default class extends Controller {
           profile.style.transform = ``;
           if (posX > thresholdMatch) {
             profile.classList.add('profile--match');
-            console.log('✅ Yes!')
+            console.log('✅ Yes! (user is created in matches table')
 
             const url =  `/listings/${profile.dataset.id}/matches`;
             const body = {match: {listing_id: profile.dataset.id}};
