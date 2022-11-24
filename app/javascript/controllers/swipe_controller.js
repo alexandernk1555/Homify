@@ -54,28 +54,17 @@ export default class extends Controller {
           profile.style.transform = ``;
           if (posX > thresholdMatch) {
             profile.classList.add('profile--match');
-            console.log('✅ Yes!')
-            // execute Match.create in matches_controller or in
-            // listings_controller
-            // use AJAX call??
+            console.log('✅ Yes! (user is created in matches table')
 
-            // Rails.ajax({
-            //   url: "/exe_method_from_js/",
-            //   type: "get",
-            //   data: "",
-            //   // success: function(data) {},
-            //   // error: function(data) {}
-            // })
-
-            // const url = "/exe_method_from_js/";
-            // fetch(url, {
-            //   method: "GET",
-            // })
-
-            // # def exe_method_from_js
-            // #   puts "The method 'exe_method_from_js was executed. ✅'"
-            // # end
-
+            const url =  `/listings/${profile.dataset.id}/matches`;
+            const body = {match: {listing_id: profile.dataset.id}};
+            fetch(url, {
+              method: "POST",
+              body: JSON.stringify(body),
+              headers: {
+                        'Content-Type': 'application/json',
+                        "X-CSRF-Token": document.querySelector("meta[name=csrf-token]").content}
+            })
 
           } else if (posX < -thresholdMatch) {
             // add search_id to some table to register that the user has,
