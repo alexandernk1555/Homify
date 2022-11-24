@@ -16,5 +16,8 @@ application.register("hello", HelloController)
 import OutputController from "./output_controller"
 application.register("output", OutputController)
 
+import ProfileToggleController from "./profile_toggle_controller"
+application.register("profile-toggle", ProfileToggleController)
+
 import SwipeController from "./swipe_controller"
 application.register("swipe", SwipeController)

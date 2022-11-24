@@ -12,5 +12,6 @@ class Listing < ApplicationRecord
 
   belongs_to :user
   has_many :matches
+  has_many_attached :photos
   validates :price, :bedrooms, :bathrooms, :address, :property_type, :area_size, :floor, presence: true
 end

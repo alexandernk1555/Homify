@@ -1,5 +1,5 @@
 <h3 class="section-header">forgot your password?</h3>
-<p>Enter your email below and we will send you a link to reset your password:</p>
+<p>enter your email below and we will send you a link to reset your password:</p>
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
@@ -12,7 +12,7 @@
                 autofocus: true,
                 input_html: { autocomplete: "email" } %>
   </div>
-<div class="form-login">
+<div class="form-devise">
   <div class="form-actions primary-devise">
     <%= f.button :submit, "submit" %>
   </div>
