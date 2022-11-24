@@ -1,0 +1,18 @@
+<h3>new search</h3>
+<%= simple_form_for(@search) do |f| %>
+  <%= f.input :price %>
+  <%= f.input :address %>
+  <%= f.input :property_type %>
+  <%= f.input :area_size %>
+  <%= f.input :bedrooms %>
+  <%= f.input :bathrooms %>
+  <%= f.input :floor %>
+  <%= f.input :balcony %>
+  <%= f.input :garden %>
+  <%= f.input :parking %>
+  <%= f.input :lift %>
+  <%= f.input :furnished %>
+  <%= f.input :pets %>
+  <%= f.button :submit, "create search", class:"button-primary d-flex justify-content-center" %>
+<% end %>
+  
