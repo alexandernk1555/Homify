@@ -3,18 +3,6 @@
   <%# iterating through all the listings to create the swipe-cards %>
   <div class="profiles">
     <% @listings.each do |listing| %>
-      <div class="profile" data-id="<%= listing.id %>">
-        <div class="swipe_card mb-5">
-          <div class="swipe_card_image"
-               style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8)),
-                        url(<%= cl_image_path listing.photos.first.key %>);
-                      display: flex; align-items: end">
-            <div class="swipe_card_header ms-3">
-              <h2><%= "#{listing.address.split(",")[1].split(" ")[1]}" %></h2>
-              <h2 class="listing-price">€ <%= listing.price.to_s.gsub(/\B(?=(...)*\b)/, ' ') %></h2>
-            </div>
-          </div>
-          <div class="swipe_card_description mt-4 ms-3">
       <!-- Modal -->
       <button
               data-swipe-target="modal"
@@ -104,7 +92,7 @@
           <div class="swipe_card mb-5">
             <div class="swipe_card_image"
                 style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8)),
-                          url(https://source.unsplash.com/random/?interior/<%= "#{rand(5..80)}" %>);
+                          url(<%= cl_image_path listing.photos.first.key %>);
                         display: flex; align-items: end">
               <div class="swipe_card_header ms-3">
                 <h2><%= "#{listing.address.split(",")[1].split(" ")[1]}" %></h2>
