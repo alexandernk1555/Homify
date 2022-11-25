@@ -1,9 +1,7 @@
 <div class="d-flex flex-row" id="new-listing-form">
-  <%# <div id="new-pics">
-  </div> %>
   <div class="create-form mt-4">
     <div class="create-form-header mb-5">
-      <h3>add a new listing</h3>
+      <h3>edit listing</h3>
     </div>
     <%= simple_form_for @listing do |f| %>
       <%= f.input :address, label: "address", input_html: { class:"form-input" } %>
@@ -21,13 +19,8 @@
       <%= f.input :pets, label: "pets allowed", input_html: { class:"form-input" } %>
       <%= f.input :description, label: "description", input_html: { class:"form-input", :rows => 5 } %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.button :submit, "save listing", class: "button-primary d-flex justify-content-center w-100"%>
+      <%= f.button :submit, "update listing", class: "button-primary d-flex justify-content-center w-100"%>
     <% end %>
   </div>
 </div>
-
-<% if flash[:alert] %>
-      <div id="alert">
-         <%= flash[:alert] %>
-      </div>
-<% end %>
+  <%= link_to "delete", listings_path, class: "button-secondary d-flex justify-content-center" %>
