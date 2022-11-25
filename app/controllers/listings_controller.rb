@@ -6,22 +6,22 @@ class ListingsController < ApplicationController
       @listings = Listing.all
 
       [ "price",
- "bedrooms",
- "bathrooms",
- "address",
- "photos",
- "description",
- "property_type",
- "area_size",
- "floor",
- "garden",
- "balcony",
- "parking",
- "family_status",
- "occupation",
- "pets",
- "lift",
- "furnished",].each do |column|
+      "bedrooms",
+      "bathrooms",
+      "address",
+      "photos",
+      "description",
+      "property_type",
+      "area_size",
+      "floor",
+      "garden",
+      "balcony",
+      "parking",
+      "family_status",
+      "occupation",
+      "pets",
+      "lift",
+      "furnished",].each do |column|
         value = @search.send(column.to_sym)
         if value.present?
           if column == "price"
@@ -30,7 +30,11 @@ class ListingsController < ApplicationController
             query = "#{column} = :value"
           end
           p query, value
+<<<<<<< HEAD
           @listings = @listings.where(query, value: value) 
+=======
+          @listings = @listings.where(query, value)
+>>>>>>> f9ef0fefd39da8db1c52e7d1e49990ce2b4869e5
         end
       end
     elsif params[:query].present?
@@ -51,19 +55,36 @@ class ListingsController < ApplicationController
   def create
     @user = current_user
     @listing = Listing.new(listing_params)
-    @listing.user = @user
+    @listing.user = current_user
+    @listing.save
 
-    if @listing.save
-      redirect_to listing_path(@listing)
+    if @listing.save!
+      redirect_to listing_path(listing: @listing.id)
     else
       render :new
     end
   end
+
+  def edit
+    @listing = Listing.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @listing = Listing.find(params[:id])
+    @listing.update(listing_params)
+    redirect_to listing_path(@listing)
+  end
+
+  def destroy
+	  @listing = Listing.find(params[:id])
+	  @listing.destroy
+	  redirect_to listings_path, status: :see_other
+	end
 
   private
 
   def listing_params
     params.require(:listing).permit(:price, :bedrooms, :bathrooms, :address, :description, :property_type, :area_size, :floor, :garden, :balcony, :parking, :family_status, :occupation, :pets, :lift, :furnished, :user_id, photos: [])
   end
-
 end
