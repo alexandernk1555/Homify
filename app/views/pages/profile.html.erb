@@ -1,17 +1,16 @@
 <h3>your profile</h3>
  <div class="profile-header-card">
   <div class="profile-image">
-    <% if @user.profile_picture.nil? %>
+    <% if !@user.profile_photo.attached? %>
         <div class="avatar-large" style="background-image:url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png)"></div>
     <% else %>
-        <div class="avatar-large" style="background-image:url(<%= cl_image_path @user.profile_picture.key %>)"></div>
+        <div class="avatar-large" style="background-image:url(<%= cl_image_path @user.profile_photo.key %>)"></div>
     <% end %>
     <h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
   </div>
     <div class="profile-content">
       <p><%= @user.email %></p>
       <p><%= @user.gender %></p>
-      <p><%= "dob:" %></p>
     </div>
 </div>
 <div data-controller="profile-toggle">
@@ -49,15 +48,15 @@
       <div class="profile-listings">
         <%= link_to "+ add a property", new_listing_path, class:"button-secondary-small" %>
         <% @listings.each do |item| %>
-        <a class="listing-wrapper" href="listings/<%= item.id %>">
-          <div class="profile_item_card mt-3">
-              <%= cl_image_tag item.photos.first.key %>
-              <div class="profile_item_card_infos">
-                <h3> <%= item.address %> </h3>
-                <p> <%= item.description %></p>
-              </div>
-              </a>
-          </div>
+          <a class="listing-wrapper" href="listings/<%= item.id %>/edit">
+            <div class="profile_item_card mt-3">
+                <%= cl_image_tag item.photos.first.key %>
+                <div class="profile_item_card_infos">
+                  <h3> <%= item.address %> </h3>
+                  <p> <%= item.description %></p>
+                </div>
+            </div>
+          </a>
         <% end %>
       </div>
     <% else %>

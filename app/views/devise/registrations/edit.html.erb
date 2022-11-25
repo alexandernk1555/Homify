@@ -13,7 +13,7 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :profile_photo, as: :file %>
     <%= f.input :password,
                 label: false,
                 placeholder: "new password",
