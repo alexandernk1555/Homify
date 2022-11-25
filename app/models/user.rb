@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :listings
   has_many :messages
-  has_one_attached :photos
+  has_one_attached :profile_photo
   validates :last_name, :first_name, presence: true
 end
