@@ -4,7 +4,7 @@
   <%= f.input :price, as: :range, input_html: { min: 0, max: 10000, value: 0, data: {action: "input->output#change"}}, wrapper_html: { class: "range-input-wrapper" } %>
   <output data-output-target="output">0</output>
   </div>
-  <%= f.input :address %>
+  <%= f.input :address, label: "Location" %>
   <%= f.input :property_type %>
   <%= f.input :area_size %>
   <%= f.input :bedrooms %>
