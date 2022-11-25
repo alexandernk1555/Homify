@@ -10,7 +10,7 @@
   </div>
     <div class="profile-content">
       <p><%= @user.email %></p>
-      <p><%= "gender" %></p>
+      <p><%= @user.gender %></p>
       <p><%= "dob:" %></p>
     </div>
 </div>
@@ -39,8 +39,20 @@
     </div>
   </div>
 
-  <div class="profile-listings-container hide-element" data-profile-toggle-target="hidelistings">
-    <div class="no-current-listings">
+
+    <div class="profile-listings-container hide-element" data-profile-toggle-target="hidelistings">
+      <div class="profile-listings">
+      <%= link_to "+ add a property", new_listing_path, class:"button-secondary-small" %>
+        <div class="profile_item_card mt-5">
+          <img src="https://cdn.shopify.com/s/files/1/0352/0236/7628/products/wassilychair4_1200x.jpg?v=1594789572" />
+          <div class="profile_item_card_infos">
+            <h3>apartment</h3>
+            <p>apartment description</p>
+        </div>
+      </div>
+    </div>
+
+  <div class="no-current-listings">
       <p>You have no current listings. <%= link_to "Click here", listings_path, class:"text-link" %> to list your property.</p>
     </div>
   </div>
