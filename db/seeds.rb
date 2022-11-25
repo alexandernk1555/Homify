@@ -220,7 +220,9 @@ listing_1 = Listing.create!(
 	bedrooms: 1,
 	bathrooms: 1,
 	address: "Tarpenbekstraße 112, 20251 Hamburg, Deutschland",
+
 	photos: "https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg",
+
 	description: "This bright property is situated on the first floor of a converted period building and is only a few minutes’ walk from all the transport facilities and amenities Putney has to offer. Towards the front is an open-plan kitchen/reception room with wood floors and high ceilings allowing for an abundance of natural light. At the rear of the property are two double bedrooms, both with built-in wardrobes, and a modern bathroom with bath and shower over.",
 	property_type: "Apartment",
 	area_size: 45,
