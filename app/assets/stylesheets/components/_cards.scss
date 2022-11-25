@@ -1,6 +1,6 @@
 .profile_item_card {
   overflow: hidden;
-  height: 20vh;
+  height: 15vh;
   background: rgba(249, 246, 240, 0.07);
   display: flex;
   align-items: flex-start;
@@ -9,7 +9,7 @@
 
 .profile_item_card img {
   height: 100%;
-  width: 140px;
+  width: 40%;
   object-fit: cover;
 }
 
@@ -30,4 +30,12 @@
 .profile_item_card_infos {
   padding: 16px;
   color: $white;
+  h3{
+    font-size: 0.8rem;
+    text-overflow: ellipsis;
+  }
+  p{
+    font-size: 0.8rem;
+    text-overflow: ellipsis;
+  }
 }
