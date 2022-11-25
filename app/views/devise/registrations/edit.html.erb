@@ -1,13 +1,17 @@
-<h3 class="section-header">edit <%= resource_name.to_s.humanize %></h3>
+<h3 class="section-header">edit your profile</h3>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :email,
+                required: true,
+                label: false,
+                placeholder: "email",
+                autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <p>currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
     <%= f.input :password,
@@ -28,14 +32,14 @@
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
   </div>
-
+<div class="form-devise">
   <div class="form-actions primary-devise">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "update" %>
   </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<div class="secondary-devise">
+<%= link_to "cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+<br>
+<%= link_to "back", :back %>
+</div>
+</div>
