@@ -51,7 +51,7 @@ class ListingsController < ApplicationController
     @listing.save
 
     if @listing.save!
-      redirect_to listing_path(listing: @listing.id)
+      redirect_to listing_path(@listing.id)
     else
       render :new
     end
@@ -64,14 +64,14 @@ class ListingsController < ApplicationController
   def update
     @user = current_user
     @listing = Listing.find(params[:id])
-    @listing.update(listing_params)
-    redirect_to listing_path(@listing)
+    @listing.update!(listing_params)
+    redirect_to listing_path(@listing.id)
   end
 
   def destroy
 	  @listing = Listing.find(params[:id])
 	  @listing.destroy
-	  redirect_to listings_path, status: :see_other
+	  redirect_to profile_path
 	end
 
   private
