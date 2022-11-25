@@ -61,3 +61,28 @@
       color: $white;
     }
  }
+
+ input[type='range']::-webkit-slider-thumb {
+  background-color: $green;
+
+ }
+
+ input[type='range']:focus::-webkit-slider-thumb {
+  box-shadow: none !important;
+  background-color: $green !important;
+  border: none;
+  -webkit-appearance: none;
+ }
+.range-wrapper{
+  output {
+    color: $white;
+    position: absolute;
+    transform: translateX(-50%);
+  }
+ position: relative;
+ margin-bottom: 24px;
+}
+
+.range-input-wrapper {
+  margin-bottom: 0 !important;
+}

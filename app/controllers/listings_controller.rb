@@ -24,9 +24,13 @@ class ListingsController < ApplicationController
       "furnished",].each do |column|
         value = @search.send(column.to_sym)
         if value.present?
-          query = "#{column} = ?"
+          if column == "price"
+            query = "#{column} > (:value - 500) AND #{column} < (:value + 500)"
+          else
+            query = "#{column} = :value"
+          end
           p query, value
-          @listings = @listings.where(query, value)
+          @listings = @listings.where(query, value: value) 
         end
       end
     elsif params[:query].present?
