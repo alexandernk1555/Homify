@@ -30,11 +30,7 @@ class ListingsController < ApplicationController
             query = "#{column} = :value"
           end
           p query, value
-<<<<<<< HEAD
           @listings = @listings.where(query, value: value) 
-=======
-          @listings = @listings.where(query, value)
->>>>>>> f9ef0fefd39da8db1c52e7d1e49990ce2b4869e5
         end
       end
     elsif params[:query].present?
