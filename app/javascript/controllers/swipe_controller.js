@@ -4,9 +4,20 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="swipe"
 export default class extends Controller {
+  
+
+
+  toggle(event) {
+    console.log('toggleShow works');
+    document.getElementById(`button${event.path[2].dataset.id}`).click()
+  }
+
   connect() {
 
     console.log('hello');
+
+
+
 
     /*! Hammer.JS - v2.0.8 - 2016-04-23
     * http://hammerjs.github.io/
