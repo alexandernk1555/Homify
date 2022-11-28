@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :matches, only: [:show] do
     resources :viewings, only: [:new, :create]
+    resources :messages, only: :create
   end
 
   resources :searches, only: [:new, :create, :edit, :update, :destroy]

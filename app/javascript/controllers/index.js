@@ -13,6 +13,9 @@ application.register("button-yes-no", ButtonYesNoController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import MatchSubscriptionController from "./match_subscription_controller"
+application.register("match-subscription", MatchSubscriptionController)
+
 import OutputController from "./output_controller"
 application.register("output", OutputController)
 
