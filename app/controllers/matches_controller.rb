@@ -6,9 +6,10 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
+    @message = Message.new
     @user = current_user.id
     # @user = User.find(@match.user_id)
-    @listing = Listing.find(@match.listing_id)
+    @listing = Listing.find(@match.listing_id)    
   end
 
 

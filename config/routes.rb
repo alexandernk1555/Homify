@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'viewings/new'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -8,6 +9,11 @@ Rails.application.routes.draw do
 
   resources :listings, only: [:index, :show, :new, :create, :edit, :update] do
     resources :matches, only: [:create]
+  end
+
+  resources :matches, only: [:show] do
+    resources :viewings, only: [:new, :create]
+    resources :messages, only: :create
   end
 
   resources :searches, only: [:new, :create, :edit, :update, :destroy]
