@@ -30,7 +30,7 @@ class ListingsController < ApplicationController
             query = "#{column} = :value"
           end
           p query, value
-          @listings = @listings.where(query, value: value) 
+          @listings = @listings.where(query, value: value)
         end
       end
     elsif params[:query].present?
@@ -42,6 +42,8 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @viewing = Viewing.new
+    @match = current_user.matches.find_by(listing: @listing)
   end
 
   def new
