@@ -18,10 +18,10 @@ Rails.application.routes.draw do
 
   resources :searches, only: [:new, :create, :edit, :update, :destroy]
   resources :users, only: [:show, :new, :create]
+  resources :matches, only: [:index, :show, :destroy]
 
   get "julia", to: "pages#julia"
   get "julia/:id", to: "pages#julia"
-  get "/jorgen/", to: 'pages#jorgen'
   get '/alex/' => 'pages#alex'
   # Defines the root path route ("/")
   get "/alexander/", to: "pages#alexander"
