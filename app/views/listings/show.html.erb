@@ -49,11 +49,27 @@
 
 <% if current_user.matches.pluck(:listing_id).include? @listing.id %>
 <div class="viewing_cta d-flex justify-content-center mt-5">
-  <a class="button-primary" style="text-decoration: none !important" href="#">book a viewing</a>
+
+
+<button id="booking-button" class="button-primary" style="text-decoration: none !important;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  book a viewing
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'components/booking_form' %>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 <div class="message_cta d-flex justify-content-center mt-3 mb-3">
   <a class="button-secondary" style="text-decoration: none !important" href="#">message julia</a>
 </div>
-
-<%= render 'components/booking_form' %>
 <% end %>

@@ -39,3 +39,29 @@
     text-overflow: ellipsis;
   }
 }
+
+.viewing-wrapper{
+  text-decoration: none;
+}
+
+.show-viewings-card-infos {
+  color: $white;
+  margin: 20px;
+  padding: 16px;
+  background: rgba(249, 246, 240, 0.07);
+  overflow: hidden;
+  height: 15vh;
+  border-radius: 10px;
+  margin-top: 20px;
+
+  h3{
+    font-size: 2rem;
+    text-overflow: ellipsis;
+    text-decoration: none;
+  }
+  p{
+    font-size: 0.8rem;
+    text-overflow: ellipsis;
+    text-decoration: none;
+  }
+}

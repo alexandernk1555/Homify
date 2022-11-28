@@ -1,10 +1,10 @@
 <%= simple_form_for [@match, @viewing] do |f| %>
 <div class="form-inputs">
-  <%= f.input :date %>
+  <%= f.input :date, :order => [:day, :month, :year] %>
   <%= f.input :start_time %>
   <%= f.input :end_time %>
 </div>
-<div class="primary-devise">
+<div class="booking-submit">
   <%= f.submit %>
 </div>
 <% end %>
