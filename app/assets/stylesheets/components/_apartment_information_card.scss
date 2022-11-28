@@ -1,7 +1,9 @@
 .apartment_information_card {
   display: flex;
+}
 
-  h3{
-    font-weight: 800 !important;
-  }
+.back-to-matches {
+  font-size: 1.5rem;
+  text-align: end;
+  margin-top: -20px;
 }
