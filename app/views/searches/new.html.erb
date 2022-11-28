@@ -1,8 +1,8 @@
 <h3>new search</h3>
 <%= simple_form_for(@search) do |f| %>
   <div class="range-wrapper" data-controller="output">
-  <%= f.input :price, as: :range, input_html: { min: 0, max: 10000, value: 0, data: {action: "input->output#change"}}, wrapper_html: { class: "range-input-wrapper" } %>
-  <output data-output-target="output">0</output>
+  <%= f.input :price, as: :range, input_html: { min: 2000, max: 10000, value: 2000, data: {action: "input->output#change"}}, wrapper_html: { class: "range-input-wrapper" } %>
+  <output data-output-target="output">2000</output>
   </div>
   <%= f.input :address, label: "Location" %>
   <%= f.input :property_type %>

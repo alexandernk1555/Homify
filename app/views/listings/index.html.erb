@@ -1,5 +1,7 @@
 <div data-controller="swipe">
-
+  <div class="background-text">  
+    <p>There are no more listings that match your criteria. Go back and edit your search.</p>
+  </div>
   <%# iterating through all the listings to create the swipe-cards %>
   <div class="profiles">
     <% @listings.each do |listing| %>
@@ -25,7 +27,7 @@
               <%# listing show page %>
               <div>
                 <div class="apartment_name">
-                  <h3><%="#{listing.address}"%></h3>
+                  <h3><%="#{listing.district}"%></h3>
                 </div>
                 <div class="show_image">
                   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -95,7 +97,7 @@
                           url(<%= cl_image_path listing.photos.first.key %>);
                         display: flex; align-items: end">
               <div class="swipe_card_header ms-3">
-                <h2><%= "#{listing.address.split(",")[1].split(" ")[1]}" %></h2>
+                <h2><%= "#{listing.district}" %></h2>
                 <h2 class="listing-price">€ <%= listing.price.to_s.gsub(/\B(?=(...)*\b)/, '.') %></h2>
               </div>
             </div>
