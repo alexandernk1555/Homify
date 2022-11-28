@@ -1,4 +1,10 @@
-<div class="apartment_name mb-4 mt-4">
+<div class="back-to-matches">
+  <%= link_to matches_path do %>
+    <i class="fa-solid fa-xmark"></i>
+  <% end %>
+</div>
+
+<div class="apartment_name mb-4">
   <h3><%="#{@listing.street}, #{@listing.postcode} #{@listing.address}, #{@listing.country}"%></h3>
 </div>
 <div class="show_image">
@@ -13,7 +19,7 @@
   </div>
 </div>
 <div class="apartment_information_card mt-4">
-  <h3><%="#{@listing.price}"%>.- pcm</h3>
+  <h3>€<%= @listing.price.to_s.gsub(/\B(?=(...)*\b)/, '.') %></h3>
 </div>
 <div class="d-flex flex-row mt-4">
   <ul class="d-flex flex-column col-6" style="list-style: none; margin: 0px; padding: 0px">
