@@ -1,0 +1,26 @@
+<h3 class="mb-3">your matches</h3>
+<div>
+    <% if @matches.count > 0 %>
+        <% @matches.each do |match| %>
+          <% listing = Listing.find(match.listing_id) %>
+          <a class="" href="listings/<%= listing.id %>">
+
+            <div class="matching-card-product">
+              <%= cl_image_tag listing.photos.first.key %>
+              <div class="matching-card-product-infos">
+                <p><strong>listing.neighborhood</strong></p>
+                <p>listing.some_other_info Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p class="unmatch-link"><%= link_to "unmatch", match, data: { turbo_method: :delete} %></p>
+              </div>
+            </div>
+
+          </a>
+        <% end %>
+
+    <% else %>
+
+      <p>Ouch! So lonely in here...</p>
+      <%= link_to "go swipe!", new_search_path, class: "button-primary-small" %>
+
+    <% end %>
+</div>
