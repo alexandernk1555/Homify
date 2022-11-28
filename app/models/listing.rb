@@ -14,4 +14,13 @@ class Listing < ApplicationRecord
   has_many :matches
   has_many_attached :photos
   validates :price, :bedrooms, :bathrooms, :address, :property_type, :area_size, :floor, presence: true
+
+  def formatted_address
+    address = address&.split(",")&[1]&.split(" ")&[1]
+    if address
+      return address
+    else
+      return address = "Hamburg"
+    end
+  end
 end

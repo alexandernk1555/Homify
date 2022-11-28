@@ -8,10 +8,10 @@
       <%= f.input :price, label: "rent (per month)", input_html: { class:"form-input" } %>
       <%= f.input :area_size, label: "living space (in sqm)", input_html: { class:"form-input" } %>
       <%= f.input :property_type, collection: ["apartment", "penthouse", "house", "other"], label: "property type", input_html: { class:"form-input" } %>
-      <%= f.input :bedrooms, collection: ["1", "2", "3", "4", "5", "more than 5"], label: "bedrooms", input_html: { class:"form-input" } %>
+      <%= f.input :bedrooms, collection: ["1", "2", "3", "4", "5"], label: "bedrooms", input_html: { class:"form-input" } %>
       <%= f.input :bathrooms, collection: ["1", "2", "3", "4", "5", "more than 5"], label: "bathrooms", input_html: { class:"form-input" } %>
-      <%= f.input :floor, collection: ["ground floor", "1st floor", "2nd floor", "3rd floor", "4th floor", ">4th floor"], label: "floor", input_html: { class:"form-input" } %>
-      <%= f.input :balcony, collection: ["n/a", "1", "2", "3","more than 3"], label: "balcony", input_html: { class:"form-input" } %>
+      <%= f.input :floor, collection: ["1", "2", "3", "4", "5"], label: "floor", input_html: { class:"form-input" } %>
+      <%= f.input :balcony, collection: ["0", "1", "2", "3","4", "5"], label: "balcony", input_html: { class:"form-input" } %>
       <%= f.input :garden, label: "garden", input_html: { class:"form-input" } %>
       <%= f.input :parking, label: "parking", input_html: { class:"form-input" } %>
       <%= f.input :lift, label: "lift", input_html: { class:"form-input" } %>
