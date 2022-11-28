@@ -8,13 +8,12 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :listings, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :matches, only: [:create, :show] do
-      resources :messages, only: :create
-    end
+    resources :matches, only: [:create]
   end
 
   resources :matches, only: [:show] do
     resources :viewings, only: [:new, :create]
+    resources :messages, only: :create
   end
 
   resources :searches, only: [:new, :create, :edit, :update, :destroy]
