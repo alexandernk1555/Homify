@@ -1,0 +1,45 @@
+.unmatch-link {
+  a {
+    text-decoration: none;
+    color: $green;
+  }
+}
+
+.matching-card-product {
+  overflow: hidden;
+  height: 15vh;
+  background: rgba(249, 246, 240, 0.07);
+  display: flex;
+  align-items: start;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.matching-card-product img {
+  height: 100%;
+  width: 30vw;
+  object-fit: cover;
+}
+
+.matching-card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.matching-card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.matching-card-product .matching-card-product-infos {
+  padding: 5px;
+}
+
+.unmatch-link {
+  text-align: end;
+  padding-right: 3px;
+}
