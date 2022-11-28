@@ -1,5 +1,5 @@
 <h3>your profile</h3>
- <div class="profile-header-card">
+<div class="profile-header-card">
   <div class="profile-image">
     <% if !@user.profile_photo.attached? %>
         <div class="avatar-large" style="background-image:url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png)"></div>
@@ -8,10 +8,10 @@
     <% end %>
     <h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
   </div>
-    <div class="profile-content">
-      <p><%= @user.email %></p>
-      <p><%= @user.gender %></p>
-    </div>
+  <div class="profile-content">
+    <p><%= @user.email %></p>
+    <p><%= @user.gender %></p>
+  </div>
 </div>
 <div data-controller="profile-toggle">
   <div class="d-flex justify-content-center">
@@ -27,34 +27,42 @@
         data-action="click->profile-toggle#listings"
         data-profile-toggle-target="listings">
         listings
-        </span>
+      </span>
     </div>
   </div>
-
 
   <div class="profile-searches-container" data-profile-toggle-target="hidesearches">
-
-
-
-
-    <div class="no-current-searches">
-      <p>You have no saved searches. <%= link_to "Click here", listings_path, class:"text-link" %> to get started.</p>
-    </div>
+    <% if @searches %>
+      <div class="profile-searches">
+        <%= link_to "+ new search", new_listing_path, class:"button-primary-small" %>
+        <% @searches.each do |item| %>
+          <a class="searches-wrapper" href="searches/<%= item.id %>/edit">
+            <div class="profile_search_card mt-3">
+              <h3> <%= item.address %> </h3>
+              <p> <%= "€ #{item.price}" %></p>
+            </div>
+          </a>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="no-current-searches">
+        <p>You have no saved searches. <%= link_to "Click here", listings_path, class:"text-link" %> to get started.</p>
+      </div>
+    <% end %>
   </div>
-
 
   <div class="profile-listings-container hide-element" data-profile-toggle-target="hidelistings">
     <% if @listings %>
       <div class="profile-listings">
-        <%= link_to "+ add a property", new_listing_path, class:"button-secondary-small" %>
+        <%= link_to "+ add a property", new_listing_path, class:"button-primary-small" %>
         <% @listings.each do |item| %>
           <a class="listing-wrapper" href="listings/<%= item.id %>/edit">
             <div class="profile_item_card mt-3">
-                <%= cl_image_tag item.photos.first.key %>
-                <div class="profile_item_card_infos">
-                  <h3> <%= item.address %> </h3>
-                  <p> <%= item.description %></p>
-                </div>
+              <%= cl_image_tag item.photos.first.key %>
+              <div class="profile_item_card_infos">
+                <h3> <%= item.address %> </h3>
+                <p> <%= item.description %></p>
+              </div>
             </div>
           </a>
         <% end %>
@@ -63,9 +71,8 @@
       <div class="no-current-listings">
         <p>You have no current listings. <%= link_to "Click here", new_listing_path, class:"text-link" %> to list your property.</p>
       </div>
-  </div>
     <% end %>
-
+  </div>
 </div>
 
 <%= link_to "log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"button-primary-small" %>
