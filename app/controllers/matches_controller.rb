@@ -11,6 +11,11 @@ class MatchesController < ApplicationController
     end
   end
 
+  def show
+    @match = Match.find(params[:id])
+    @message = Message.new
+  end
+
   private
 
   def match_params

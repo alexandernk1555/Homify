@@ -10,6 +10,9 @@ application.register("button-searches-listings", ButtonSearchesListingsControlle
 import ButtonYesNoController from "./button_yes_no_controller"
 application.register("button-yes-no", ButtonYesNoController)
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

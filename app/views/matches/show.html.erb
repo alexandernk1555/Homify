@@ -1,0 +1,21 @@
+<h1>chat page</h1>
+<div class="container"
+  data-controller="match-subscription"
+  data-match-subscription-match-id-value="<%= @match.id %>">
+  <h1>#<%= @match.name %></h1>
+
+  <div class="messages" data-match-subscription-target="messages">
+    <% @chatroom.messages.each do |message| %>
+    <%= render "messages/message", message: message %>
+    <% end %>
+    <%= simple_form_for [@match, @message],
+    html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
+      <%= f.input :content,
+        label: false,
+        placeholder: "message ##{@match.name}",
+        wrapper_html: {class: "flex-grow-1"}
+      %>
+      <%= f.submit "send", class: "btn btn-primary mb-3" %>
+    <% end %>
+  </div>
+</div>
