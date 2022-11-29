@@ -9,6 +9,11 @@ class ListingsController < ApplicationController
       "bedrooms",
       "bathrooms",
       "address",
+      "city",
+      "country",
+      "street",
+      "postcode",
+      "district",
       "photos",
       "description",
       "property_type",
@@ -38,13 +43,31 @@ class ListingsController < ApplicationController
     else
       @listings = Listing.all
     end
+
+    @markers = @listings.geocoded.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {listing: listing})
+      }
+    end
   end
 
   def show
     @listing = Listing.find(params[:id])
     @viewing = Viewing.new
     @match = current_user.matches.find_by(listing: @listing)
+
+    @listings = Listing.all
+    @markers = @listings.geocoded.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {flat: flat})
+      }
+    end
   end
+
 
   def new
     @listing = Listing.new
@@ -83,6 +106,7 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:price, :bedrooms, :bathrooms, :address, :description, :property_type, :area_size, :floor, :garden, :balcony, :parking, :family_status, :occupation, :pets, :lift, :furnished, :user_id, photos: [])
+    params.require(:listing).permit(:price, :bedrooms, :bathrooms, :address, :description, :property_type, :area_size, :floor, :garden, :balcony, :parking, :family_status, :occupation, :pets, :lift, :furnished, :user_id, :city, :district, :postcode, :street, :country, photos: [])
   end
+
 end
