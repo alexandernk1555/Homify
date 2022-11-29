@@ -1,5 +1,6 @@
 <h3>your profile</h3>
 <div class="profile-header-card">
+<%= link_to "edit profile", edit_user_registration_path, class:"button-secondary-small" %>
   <div class="profile-image">
     <% if !@user.profile_photo.attached? %>
         <div class="avatar-large" style="background-image:url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png)"></div>
@@ -34,19 +35,20 @@
   <div class="profile-searches-container" data-profile-toggle-target="hidesearches">
     <% if @searches %>
       <div class="profile-searches">
-        <%= link_to "+ new search", new_listing_path, class:"button-primary-small" %>
-        <% @searches.each do |item| %>
+        <%= link_to "+ new search", new_search_path, class:"button-primary-small" %>
+        <% @searches.reverse_each do |item| %>
           <a class="searches-wrapper" href="searches/<%= item.id %>/edit">
             <div class="profile_search_card mt-3">
-              <h3> <%= item.address %> </h3>
-              <p> <%= "€ #{item.price}" %></p>
+              <p><i class="fa-sharp fa-solid fa-location-pin"> </i><%= " #{item.address}" %> </p>
+              <p><%= "€#{item.price}" %></p>
+              <p><i class="fa-solid fa-bed me-4"></i><%= "#{item.bedrooms}" %></p>
             </div>
           </a>
         <% end %>
       </div>
     <% else %>
       <div class="no-current-searches">
-        <p>You have no saved searches. <%= link_to "Click here", listings_path, class:"text-link" %> to get started.</p>
+        <p>You have no saved searches. <%= link_to "Click here", new_search_path, class:"text-link" %> to get started.</p>
       </div>
     <% end %>
   </div>
@@ -76,5 +78,3 @@
 </div>
 
 <%= link_to "log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"button-primary-small" %>
-<br>
-<%= link_to "edit profile", edit_user_registration_path, class:"button-secondary-small" %>

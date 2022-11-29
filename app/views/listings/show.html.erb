@@ -53,8 +53,8 @@
   <p><%="#{@listing.description}"%></p>
 </div>
 
-<% if current_user.matches.pluck(:listing_id).include? @listing.id %>
-<div class="viewing_cta d-flex justify-content-center mt-5">
+<% if @match %>
+<div class="viewing_cta d-flex justify-content-center mt-3 flex-column">
 
 
 <button id="booking-button" class="button-primary" style="text-decoration: none !important;" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -74,8 +74,8 @@
     </div>
   </div>
 </div>
-</div>
 <div class="message_cta d-flex justify-content-center mt-3 mb-3">
-  <a class="button-secondary" style="text-decoration: none !important" href="#">message julia</a>
+  <a class="button-secondary" style="text-decoration: none !important" href="#">message  <%= @listing.user.first_name.downcase %></a>
+</div>
 </div>
 <% end %>
