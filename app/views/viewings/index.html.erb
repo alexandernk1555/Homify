@@ -18,22 +18,24 @@
   </div>
 <br>
   <div class="profile-searches-container" data-profile-toggle-target="hidesearches">
-    <h5 class="viewing-subheader">upcoming viewings</h5>
+  <h5 class="viewing-subheader">upcoming viewings</h5>
     <div class="viewings-show-container">
-      <% if @viewings != [] %>
+      <% if @viewings != []%>
         <div class="show-viewings">
           <% @viewings.each do |item| %>
+            <% if item.status != "pending" %>
                 <div class="show-viewings-card-infos">
                   <p><i class="fa-solid fa-calendar"></i><%= " #{item.date.strftime('%d-%m-%Y')}" %></p>
                   <p><i class="fa-solid fa-clock"></i><%= " #{item.start_time.strftime('%H:%M')}" %></p>
                   <p><i class="fa-sharp fa-solid fa-location-pin"></i> <%= "  #{item.match.listing.address}" %></p>
                   <%= link_to "cancel viewing", viewing_path(item), data: { turbo_method: :delete }, class: "button-secondary-small" %>
                 </div>
+              <% else %>
+                <div class="no-current-listings">
+                    <p>no upcoming viewings confirmed</p>
+                </div>
+               <% end %>
           <% end %>
-        </div>
-      <% else %>
-        <div class="no-current-listings">
-            <p>no upcoming viewings confirmed</p>
         </div>
     <% end %>
    </div>
@@ -42,17 +44,19 @@
       <% if @viewings != [] %>
         <div class="show-viewings">
           <% @viewings.each do |item| %>
+            <% if item.status == "pending" %>
                 <div class="show-viewings-card-infos">
                   <p><i class="fa-solid fa-calendar"></i><%= " #{item.date.strftime('%d-%m-%Y')}" %></p>
                   <p><i class="fa-solid fa-clock"></i><%= " #{item.start_time.strftime('%H:%M')}" %></p>
                   <p><i class="fa-sharp fa-solid fa-location-pin"></i> <%= "  #{item.match.listing.address}" %></p>
                   <%= link_to "cancel viewing request", viewing_path(item), data: { turbo_method: :delete }, class: "button-secondary-small" %>
                 </div>
+            <% else %>
+                <div class="no-current-listings">
+                    <p>you have no viewings booked.</p>
+                </div>
+            <% end %>
           <% end %>
-        </div>
-      <% else %>
-        <div class="no-current-listings">
-            <p>you have no viewings booked.</p>
         </div>
     <% end %>
    </div>
