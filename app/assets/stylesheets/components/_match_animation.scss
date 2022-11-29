@@ -3,6 +3,15 @@
   top: 310px;
   left: 170px;
 
+  .blur {
+    backdrop-filter: blur(3px);
+    position: fixed;
+    top: -100px;
+    left: 0px;
+    height: 400vh;
+    width: 300vw;
+  }
+
   *, *:before, *:after {
     box-sizing: border-box;
     margin: 0;
