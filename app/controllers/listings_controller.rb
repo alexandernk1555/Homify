@@ -30,12 +30,12 @@ class ListingsController < ApplicationController
         value = @search.send(column.to_sym)
         if value.present?
           if column == "price"
-            query = "#{column} > (:value - 500) AND #{column} < (:value + 500)"
+            query = "#{column} > :min AND #{column} < :max"
           else
             query = "#{column} = :value"
           end
           p query, value
-          @listings = @listings.where(query, value: value)
+          @listings = @listings.where(query, value: value, min: @search.price, max: @search.price_max)
         end
       end
     elsif params[:query].present?
@@ -43,11 +43,11 @@ class ListingsController < ApplicationController
     else
       @listings = Listing.all
     end
-
     @markers = @listings.geocoded.map do |listing|
       {
         lat: listing.latitude,
         lng: listing.longitude,
+        id: listing.id,
         info_window: render_to_string(partial: "info_window", locals: {listing: listing})
       }
     end
@@ -63,6 +63,7 @@ class ListingsController < ApplicationController
       {
         lat: listing.latitude,
         lng: listing.longitude,
+        id: listing.id,
         info_window: render_to_string(partial: "info_window", locals: {flat: flat})
       }
     end

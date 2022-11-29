@@ -28,12 +28,11 @@
 }
 
 .primary-devise{
-
   .btn{
-  margin: 20px 30px 30px 0px;
-  font-size: 1.2rem;
-  padding: 0px;
-  color: $green;
+    margin: 20px 30px 30px 0px;
+    font-size: 1.2rem;
+    padding: 0px;
+    color: $green;
   }
 
   input{
@@ -45,48 +44,53 @@
 }
 
 .secondary-devise{
-
   a{
-  font-weight:lighter;
-  font-size: 0.8rem;
+    font-weight:lighter;
+    font-size: 0.8rem;
   }
 }
+
 .form-check-label{
   color: $white;
 }
- .form-check-input{
+
+.form-check-input{
   background-color: $white;
- }
+}
 
- .edit_search {
-    display: flex;
-    flex-direction: column;
+.edit_search {
+  display: flex;
+  flex-direction: column;
 
-    label {
-      color: $white;
-    }
- }
+  label {
+    color: $white;
+  }
+}
 
- .new_search {
-    display: flex;
-    flex-direction: column;
+.new_search {
+  display: flex;
+  flex-direction: column;
 
-    label {
-      color: $white;
-    }
- }
+  label {
+    color: $white;
+  }
+}
 
- input[type='range']::-webkit-slider-thumb {
+output {
+  margin-top: 12px; 
+}
+
+input[type='range']::-webkit-slider-thumb {
   background-color: $green;
+}
 
- }
-
- input[type='range']:focus::-webkit-slider-thumb {
+input[type='range']:focus::-webkit-slider-thumb {
   box-shadow: none !important;
   background-color: $green !important;
   border: none;
   -webkit-appearance: none;
- }
+}
+
 .range-wrapper{
   output {
     color: $white;
