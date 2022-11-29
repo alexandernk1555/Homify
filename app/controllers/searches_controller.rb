@@ -27,7 +27,7 @@ class SearchesController < ApplicationController
 	def destroy
 	  @search = Search.find(params[:id])
 	  @search.destroy
-	  redirect_to listings_path, status: :see_other
+	  redirect_to request.referer, status: :see_other
 	end
 
 

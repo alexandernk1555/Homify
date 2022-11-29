@@ -76,7 +76,7 @@ group :development do
 end
 gem "devise"
 gem "simple_form", github: "heartcombo/simple_form"
-
+gem 'simple-form-datepicker', '~> 0.1.3'
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"

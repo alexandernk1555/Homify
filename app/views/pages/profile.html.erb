@@ -37,13 +37,17 @@
       <div class="profile-searches">
         <%= link_to "+ new search", new_search_path, class:"button-primary-small" %>
         <% @searches.reverse_each do |item| %>
-          <a class="searches-wrapper" href="searches/<%= item.id %>/edit">
             <div class="profile_search_card mt-3">
-              <p><i class="fa-sharp fa-solid fa-location-pin"> </i><%= " #{item.address}" %> </p>
-              <p><%= "€#{item.price}" %></p>
-              <p><i class="fa-solid fa-bed me-4"></i><%= "#{item.bedrooms}" %></p>
+              <div class="search-card-head">
+                <a class="button-secondary-small" href="searches/<%= item.id %>/edit">edit</a>
+                <%= link_to "x", search_path(item), data: { turbo_method: :delete }, class: "button-secondary-small" %>
+              </div>
+              <div class="search-card-body">
+                <p><i class="fa-sharp fa-solid fa-location-pin"> </i><%= " #{item.address}" %> </p>
+                <p><i class="fa-solid fa-bed me-4"></i><%= "#{item.bedrooms}" %></p>
+                <p class="search-price"><%= "€#{item.price}/month" %></p>
+              </div>
             </div>
-          </a>
         <% end %>
       </div>
     <% else %>
