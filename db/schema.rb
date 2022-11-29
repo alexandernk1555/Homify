@@ -67,6 +67,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_083308) do
     t.string "district"
     t.string "street"
     t.string "country"
+    t.string "city"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
@@ -117,6 +120,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_083308) do
     t.string "district"
     t.string "street"
     t.string "country"
+    t.string "city"
+    t.integer "price_max"
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 

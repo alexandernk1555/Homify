@@ -64,11 +64,11 @@
         <% @listings.each do |item| %>
           <a class="listing-wrapper" href="listings/<%= item.id %>/edit">
             <div class="profile_item_card mt-3">
-              <%= cl_image_tag item.photos.first.key %>
-              <div class="profile_item_card_infos">
-                <h3> <%= item.address %> </h3>
-                <p> <%= item.description %></p>
-              </div>
+                <%= cl_image_tag item.photos.first.key %>
+                <div class="profile_item_card_infos">
+                  <h3> <%= item.city %> </h3>
+                  <p> <%= item.description %></p>
+                </div>
             </div>
           </a>
         <% end %>
