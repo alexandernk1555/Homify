@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :searches, only: [:new, :create, :edit, :update, :destroy]
   resources :users, only: [:show, :new, :create]
   resources :matches, only: [:index, :show, :destroy]
+  get "chats", to: 'matches#chats', as: :chats
 
   get "julia", to: "pages#julia"
   get "julia/:id", to: "pages#julia"

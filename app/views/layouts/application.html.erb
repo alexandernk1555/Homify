@@ -12,7 +12,7 @@
 
   <body>
     <%= render 'components/header', search: params[:search] %>
-    <div class="container">
+    <div class="container <%= "chat_container" if action_name == "show" && controller_name == "matches" %>">
       <%= yield %>
     </div>
     <%= render 'components/navbar' %>

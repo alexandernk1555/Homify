@@ -1,22 +1,43 @@
-<h3>chat</h3>
-<div class="chat wrapper"
-  data-controller="match-subscription"
-  data-match-subscription-match-id-value="<%= @match.id %>">
-  <h3><%= @match.listing.user.first_name.downcase %></h3>
-
-  <div class="messages" data-match-subscription-target="messages">
-    <% @match.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
+  <div class="chat_header">
+    <div class="profile-image">
+    <% if @landlord && @match.search.user.profile_photo.attached? %>
+        <div class="chat_avatar" style="background-image:url(<%=cl_image_path @match.search.user.profile_photo.key%>)"></div>
+    <%  elsif !@landlord && @match.listing.user.profile_photo.attached?%>
+        <div class="chat_avatar" style="background-image:url(<%=cl_image_path @match.listing.user.profile_photo.key%>)"></div>
+    <% else %>
+        <div class="chat_avatar" style="background-image:url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png)"></div>
     <% end %>
+    </div>
+    <div class="chat_header_text">
+      <p><i class="fa-solid fa-chevron-left"></i>   go back</p>
+      <h3><%= "#{@landlord ? @match.search.user.first_name.downcase : @match.listing.user.first_name.downcase}" %></h3>
+    </div>
   </div>
 
-    <%= simple_form_for [@match, @message],
-    html: { data: { action: "turbo:submit-end->match-subscription#resetForm" }, class: "d-flex" } do |f| %>
-      <%= f.input :content,
-        label: false,
-        placeholder: "message #{@match.listing.user.first_name.downcase}",
-        wrapper_html: {class: "flex-grow-1"}
-      %>
-      <%= f.submit "send", class: "btn btn-primary mb-3" %>
-    <% end %>
-</div>
+  <div class="chat_wrapper"
+    data-controller="match-subscription"
+    data-match-subscription-match-id-value="<%= @match.id %>"
+    style="flex-grow: 1; overflow: scroll;">
+
+    <div class="messages" data-match-subscription-target="messages">
+      <% @match.messages.each do |message| %>
+        <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+          <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+            <%= render "messages/message", message: message %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+    <div class="message_input">
+      <%= simple_form_for [@match, @message],
+      html: { data: { action: "turbo:submit-end->match-subscription#resetForm" }, class: "d-flex" } do |f| %>
+        <%= f.input :content,
+          label: false,
+          placeholder: "message #{@landlord ? @match.search.user.first_name.downcase : @match.listing.user.first_name.downcase}",
+          wrapper_html: {class: "flex-grow-1"}
+        %>
+        <%= f.submit "send", class: "button-primary" %>
+      <% end %>
+    </div>
