@@ -1,5 +1,5 @@
 class ViewingsController < ApplicationController
-  before_action :set_match, except: [:index]
+  before_action :set_match, except: [:index, :destroy]
   def new
     @viewings = Viewing.new
   end
@@ -13,6 +13,12 @@ class ViewingsController < ApplicationController
 
   def index
     @viewings = current_user.viewings
+  end
+
+  def destroy
+    @viewing = Viewing.find(params[:id])
+	  @viewing.destroy
+	  redirect_to request.referer, status: :see_other
   end
 
   private
