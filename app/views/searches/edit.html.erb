@@ -1,12 +1,22 @@
-<div class="header">
-</div>
-  <h3>edit search</h3>
+<h3>edit search</h3>
 <%= simple_form_for(@search) do |f| %>
-  <div class="range-wrapper" data-controller="output">
-  <%= f.input :price, as: :range, input_html: { min: 0, max: 10000, value: 0, data: {action: "input->output#change"}}, wrapper_html: { class: "range-input-wrapper" } %>
-  <output data-output-target="output">0</output>
+  <div class="wrapper" data-controller="output">
+   <div class="slider">
+      <div class="progress"></div>
   </div>
-  <%= f.input :address, label: "Location"%>
+    <div class="range-input">
+      <input type="range" name="search[price]" class="range-min" min="0" max="10000" value="2000" step="100">
+      <input type="range" name="search[price_max]"class="range-max" min="0" max="10000" value="7000" step="100">
+      <output style="left: 19%" data-output-target="outputMin"><%= 2000 %></output>       
+      <output style="right: 30%" data-output-target="outputMax"><%= 7000 %></output>        
+    </div>
+  </div>
+
+  <%= f.input :city, 
+              required: true,
+              autofocus: true,
+              label: false,
+              placeholder: "city"%>
   <%= f.input :property_type %>
   <%= f.input :area_size %>
   <%= f.input :bedrooms %>
@@ -20,4 +30,5 @@
   <%= f.input :pets %>
   <%= f.button :submit, "update search", class:"button-primary d-flex justify-content-center" %>
 <% end %>
-  <%= link_to "delete", listings_path, class: "button-secondary d-flex justify-content-center" %>
+  
+  x<%= link_to "delete", listings_path, class: "button-secondary d-flex justify-content-center" %>
