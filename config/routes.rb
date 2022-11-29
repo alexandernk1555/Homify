@@ -12,9 +12,11 @@ Rails.application.routes.draw do
   end
 
   resources :matches, only: [:show] do
-    resources :viewings, only: [:new, :create, :show]
+    resources :viewings, only: [:new, :create]
     resources :messages, only: :create
   end
+
+  resources :viewings, only: [:index]
 
   resources :searches, only: [:new, :create, :edit, :update, :destroy]
   resources :users, only: [:show, :new, :create]

@@ -1,7 +1,7 @@
 <h3 class="section-header">Upcoming bookings</h3>
 
 <div class="viewings-show-container">
-    <% if @viewings %>
+    <% if @viewings != [] %>
       <div class="show-viewings">
         <% @viewings.each do |item| %>
           <a class="viewing-wrapper" href="viewings/<%= item.id %>">

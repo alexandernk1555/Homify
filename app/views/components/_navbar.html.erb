@@ -15,11 +15,20 @@
         <i class="fa-solid fa-magnifying-glass fa-2xl <%= request.path == '/searches/new' ? 'active-navbar-icon' : '' %>"></i>
       <% end %>
     </li>
+<<<<<<< HEAD
     <li><i class="fa-solid fa-calendar fa-xl"></i></li>
     <li>
     <%= link_to chats_path do %>
       <i class="fa-solid fa-comment fa-xl<%= request.path == '/chats' ? 'active-navbar-icon' : '' %>"></i>
       <% end %>
     </li>
+=======
+    <li>
+      <%= link_to viewings_path do %>
+          <i class="fa-solid fa-calendar fa-xl <%= request.path == '/viewings' ? 'active-navbar-icon' : '' %>"></i>
+      <% end %>
+    </li>
+    <li><i class="fa-solid fa-comment fa-xl"></i></li>
+>>>>>>> 8637a3ae310f82a530e0c63cebb666f7d032fa6b
   </ul>
 <div>

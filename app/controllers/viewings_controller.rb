@@ -1,5 +1,5 @@
 class ViewingsController < ApplicationController
-  before_action :set_match
+  before_action :set_match, except: [:index]
   def new
     @viewings = Viewing.new
   end
@@ -8,11 +8,11 @@ class ViewingsController < ApplicationController
     @viewing = Viewing.new(viewing_params)
     @viewing.match = @match
     @viewing.save
-    redirect_to match_viewing_path(@match, @viewing)
+    redirect_to viewings_path
   end
 
-  def show
-    @viewings = Viewing.all
+  def index
+    @viewings = current_user.viewings
   end
 
   private
