@@ -8,7 +8,7 @@
             <div class="matching-card-product">
               <%= cl_image_tag listing.photos.first.key %>
               <div class="matching-card-product-infos">
-                <h2><strong>listing.city</strong></h2>
+                <h2><strong><%= listing.district %></strong></h2>
                 <h3><%= listing.district %></h3>
                 <h3><%= listing.street %></h3>
                 <h3>€<%= listing.price.to_s.gsub(/\B(?=(...)*\b)/, '.') %></h3>
