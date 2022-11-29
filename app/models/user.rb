@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :listings
   has_many :searches
-  has_many :matches, through: :searches
-
+  has_many :matches
+  has_many :viewings, through: :matches
   has_many :messages
   has_one_attached :profile_photo
   validates :last_name, :first_name, presence: true
