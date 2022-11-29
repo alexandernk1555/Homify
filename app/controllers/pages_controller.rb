@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   def profile
     @user = current_user
     @listings = @user.listings
-    # @searches = @user.searches
+    @searches = @user.searches
   end
 
 

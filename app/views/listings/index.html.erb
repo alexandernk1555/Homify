@@ -1,5 +1,5 @@
 <div data-controller="swipe">
-  <div class="background-text">  
+  <div class="background-text">
     <p>There are no more listings that match your criteria. Go back and edit your search.</p>
   </div>
   <%# iterating through all the listings to create the swipe-cards %>
@@ -42,7 +42,7 @@
                   </div>
                 </div>
                 <div class="apartment_information_card mt-4">
-                  <h2 class="listing-price">€ <%= listing.price.to_s.gsub(/\B(?=(...)*\b)/, '.') %></h2>
+                  <h2 class="listing-price">€<%= listing.price.to_s.gsub(/\B(?=(...)*\b)/, '.') %></h2>
                 </div>
                 <div class="d-flex flex-row mt-4">
                   <ul class="d-flex flex-column col-6" style="list-style: none; margin: 0px; padding: 0px">
@@ -132,5 +132,27 @@
           </div>
         </div>
     <% end %>
+  </div>
+
+  <%# match_animation %>
+  <div id="match-animation" class="d-none" data-swipe-target="match">
+  <div class="blur"></div>
+    <div class="container-animation">
+      <div class="coast">
+        <div class="wave-rel-wrap">
+          <div class="wave"></div>
+        </div>
+      </div>
+      <div class="coast delay">
+        <div class="wave-rel-wrap">
+          <div class="wave delay"></div>
+        </div>
+      </div>
+      <div class="text text-m">m</div>
+      <div class="text text-a">a</div>
+      <div class="text text-t">t</div>
+      <div class="text text-c">c</div>
+      <div class="text text-h">h</div>
+    </div>
   </div>
 </div>

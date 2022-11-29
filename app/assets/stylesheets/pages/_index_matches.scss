@@ -1,0 +1,53 @@
+
+.matching-card-product {
+  overflow: hidden;
+  height: 15vh;
+  background: rgba(249, 246, 240, 0.07);
+  display: flex;
+  align-items: start;
+  margin-bottom: 15px;
+  border-radius: 8px;
+
+  h2 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0px 0px 10px 0px;
+  }
+
+  h3 {
+    font-size: 14px;
+    margin: 0px 0px 4px 0px;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin: 0px 0px 0px 0px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    height: 100%;
+    width: 30vw;
+    object-fit: cover;
+  }
+
+  .matching-card-product-infos {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .unmatch-link {
+    text-align: end;
+    padding-right: 3px;
+    font-weight: 400;
+    a {
+      text-decoration: none;
+      color: $green;
+    }
+  }
+}

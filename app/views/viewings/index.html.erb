@@ -1,0 +1,20 @@
+<h3 class="section-header">Upcoming bookings</h3>
+
+<div class="viewings-show-container">
+    <% if @viewings != [] %>
+      <div class="show-viewings">
+        <% @viewings.each do |item| %>
+          <a class="viewing-wrapper" href="viewings/<%= item.id %>">
+                <div class="show-viewings-card-infos">
+                  <h3> <%= item.date %> </h3>
+                  <p> <%= "#{item.start_time} - #{item.end_time}" %></p>
+                </div>
+          </a>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="no-current-listings">
+        <p>You have no viewings booked.</p>
+      </div>
+    <% end %>
+</div>

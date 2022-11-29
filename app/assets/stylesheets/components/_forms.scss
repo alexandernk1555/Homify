@@ -27,15 +27,25 @@
   }
 }
 
-.primary-devise{
-  .btn{
+.form-label{
+  color: $white;
+}
+
+.booking-submit{
+  input{
     margin: 20px 30px 30px 0px;
     font-size: 1.2rem;
     padding: 0px;
     color: $green;
+    background-color: $black;
+    border: none;
+    font-weight: bold;
   }
 
-  input{
+}
+
+.primary-devise{
+  .btn{
     margin: 20px 30px 30px 0px;
     font-size: 1.2rem;
     padding: 0px;
@@ -103,4 +113,9 @@ input[type='range']:focus::-webkit-slider-thumb {
 
 .range-input-wrapper {
   margin-bottom: 0 !important;
+}
+
+#booking-button{
+  background-color: $black;
+  border: none;
 }

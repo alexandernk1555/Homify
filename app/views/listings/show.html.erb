@@ -1,5 +1,14 @@
 <div class="apartment_name mb-4 mt-4">
   <h3><%="#{@listing.address}"%></h3>
+
+<div class="back-to-matches">
+  <%= link_to matches_path do %>
+    <i class="fa-solid fa-xmark"></i>
+  <% end %>
+</div>
+
+<div class="apartment_name mb-4">
+  <h3><%="#{@listing.street}, #{@listing.postcode} #{@listing.address}, #{@listing.country}"%></h3>
 </div>
 <div class="show_image">
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -13,7 +22,7 @@
   </div>
 </div>
 <div class="apartment_information_card mt-4">
-  <h3><%="#{@listing.price}"%>.- pcm</h3>
+  <h3>€<%= @listing.price.to_s.gsub(/\B(?=(...)*\b)/, '.') %></h3>
 </div>
 <div class="d-flex flex-row mt-4">
   <ul class="d-flex flex-column col-6" style="list-style: none; margin: 0px; padding: 0px">
@@ -47,6 +56,7 @@
   <p><%="#{@listing.description}"%></p>
 </div>
 
+<<<<<<< HEAD
   <div style="width: 100%; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
@@ -56,10 +66,31 @@
 <% if current_user.matches.pluck(:listing_id).include? @listing.id %>
 <div class="viewing_cta d-flex justify-content-center mt-5">
   <a class="button-primary" style="text-decoration: none !important" href="#">book a viewing</a>
+=======
+<% if @match %>
+<div class="viewing_cta d-flex justify-content-center mt-3 flex-column">
+
+
+<button id="booking-button" class="button-primary" style="text-decoration: none !important;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  book a viewing
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'components/booking_form' %>
+      </div>
+    </div>
+  </div>
+>>>>>>> 8637a3ae310f82a530e0c63cebb666f7d032fa6b
 </div>
 <div class="message_cta d-flex justify-content-center mt-3 mb-3">
-  <a class="button-secondary" style="text-decoration: none !important" href="#">message julia</a>
+  <a class="button-secondary" style="text-decoration: none !important" href="#">message  <%= @listing.user.first_name.downcase %></a>
 </div>
-
-<%= render 'components/booking_form' %>
+</div>
 <% end %>

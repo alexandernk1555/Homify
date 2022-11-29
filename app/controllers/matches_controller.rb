@@ -1,5 +1,19 @@
 class MatchesController < ApplicationController
 
+  def index
+    @matches = Match.where(user_id: current_user.id)
+  end
+
+  def show
+    @match = Match.find(params[:id])
+    @message = Message.new
+    @user = current_user.id
+    # @user = User.find(@match.user_id)
+    @listing = Listing.find(@match.listing_id)    
+  end
+
+
+
   def create
     @match = Match.new(match_params)
     user = current_user
@@ -11,10 +25,11 @@ class MatchesController < ApplicationController
     end
   end
 
-  def show
-    @match = Match.find(params[:id])
-    @message = Message.new
-  end
+  def destroy
+	  @match = Match.find(params[:id])
+	  @match.destroy
+	  redirect_to matches_path, notice: 'Unmatched'
+	end
 
   private
 
