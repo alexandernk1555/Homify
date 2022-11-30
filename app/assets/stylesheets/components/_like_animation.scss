@@ -1,0 +1,42 @@
+.fade-in-out {
+  rotate: -20deg;
+  position: fixed;
+  top: 200px;
+  left: 210px;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  width: 25vw;
+  -webkit-animation: fadeinout 2s linear forwards;
+  animation: fadeinout 2s linear forwards;
+}
+
+.fade-in-out-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #A5FF8E;
+}
+
+.fade-in-out-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 50px;
+  font-weight: 800;
+  color: #A5FF8E;
+  padding: 0px 40px;
+  margin: 0px;
+
+}
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}

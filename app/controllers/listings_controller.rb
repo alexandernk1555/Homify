@@ -57,7 +57,7 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
     @viewing = Viewing.new
     @match = current_user.matches.find_by(listing: @listing)
-    @listings = Listing.all
+    @listings = Listing.where(id: @listing.id)
     @markers = @listings.geocoded.map do |listing|
       {
         lat: listing.latitude,
