@@ -24,8 +24,6 @@ export default class extends Controller {
     let matchCounter = 0;
     let matchAnimation = () => {
       matchCounter += 1;
-      console.log( `🚀matchCounter is ${matchCounter}`);
-
       if (matchCounter > 2) {
         const match = document.getElementById("match-animation");
         match.classList.remove('d-none');
@@ -33,7 +31,6 @@ export default class extends Controller {
           match.classList.add('d-none')
         }, 2300);
       }
-
     }
 
 
@@ -76,7 +73,7 @@ export default class extends Controller {
           angle *= -1;
         }
 
-        // user is holding the card and can move it left or right
+        // user is selecting and holding the card and can move it left or right, back and forth.
         profile.style.transform = `translateX(${posX}px) translateY(${posY}px) rotate(${angle}deg)`;
         profile.classList.remove('profile--matching');
         profile.classList.remove('profile--nexting');
@@ -92,8 +89,11 @@ export default class extends Controller {
           fadeInOutNope();
         }
 
-        // user releases card on the left, near the middle or on the right
+        // user releases card on the left (nope),
+        // near the middle (back to middle, no action),
+        // or on the right (yes)
         if (e.isFinal) {
+          // right side, yes.
           profile.style.transform = ``;
           if (posX > thresholdMatch) {
             profile.classList.add('profile--match');
@@ -101,22 +101,24 @@ export default class extends Controller {
 
             matchAnimation();
 
-            // creating a new match in matches-table.
-            console.dir(document.location.search.split('=')[1]);
-            const searchId = document.location.search.split('=')[1];
-            const url =  `/listings/${profile.dataset.id}/matches`;
-            const body = {match: {listing_id: profile.dataset.id, search_id: searchId}};
-            fetch(url, {
-              method: "POST",
-              body: JSON.stringify(body),
-              headers: {
-                'Content-Type': 'application/json',
-                "X-CSRF-Token": document.querySelector("meta[name=csrf-token]").content}
-              })
+            if (matchCounter > 2) {
+              // creating a new match in matches-table.
+              console.log( `🚀matchCounter is ${matchCounter}`);
+              console.dir(document.location.search.split('=')[1]);
+              const searchId = document.location.search.split('=')[1];
+              const url =  `/listings/${profile.dataset.id}/matches`;
+              const body = {match: {listing_id: profile.dataset.id, search_id: searchId}};
+              fetch(url, {
+                method: "POST",
+                body: JSON.stringify(body),
+                headers: {
+                  'Content-Type': 'application/json',
+                  "X-CSRF-Token": document.querySelector("meta[name=csrf-token]").content}
+                })
+              }
 
+              // left side, nope
             } else if (posX < -thresholdMatch) {
-              // add search_id to some table to register that the user has,
-              // with this search, already seen this listing (card).
               profile.classList.add('profile--next');
               console.log('⛔ No!');
             } else {
