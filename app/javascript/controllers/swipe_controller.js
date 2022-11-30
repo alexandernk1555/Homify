@@ -72,8 +72,10 @@ export default class extends Controller {
             matchAnimation();
 
             // creating a new match in matches-table.
+            console.dir(document.location.search.split('=')[1]);
+            const searchId = document.location.search.split('=')[1];
             const url =  `/listings/${profile.dataset.id}/matches`;
-            const body = {match: {listing_id: profile.dataset.id}};
+            const body = {match: {listing_id: profile.dataset.id, search_id: searchId}};
             fetch(url, {
               method: "POST",
               body: JSON.stringify(body),

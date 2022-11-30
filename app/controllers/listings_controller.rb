@@ -57,18 +57,16 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
     @viewing = Viewing.new
     @match = current_user.matches.find_by(listing: @listing)
-
     @listings = Listing.all
     @markers = @listings.geocoded.map do |listing|
       {
         lat: listing.latitude,
         lng: listing.longitude,
         id: listing.id,
-        info_window: render_to_string(partial: "info_window", locals: {flat: flat})
+        info_window: render_to_string(partial: "info_window", locals: {listing: listing})
       }
     end
   end
-
 
   def new
     @listing = Listing.new
