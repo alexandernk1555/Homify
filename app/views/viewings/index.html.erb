@@ -19,22 +19,22 @@
 <br>
   <div class="profile-searches-container" data-profile-toggle-target="hidesearches">
     <% if @viewings != []%>
-      <h5 class="viewing-subheader">upcoming viewings</h5>
+      <h5 class="viewing-subheader">viewing requests</h5>
         <div class="viewings-show-container">
             <div class="show-viewings">
               <% @viewings.each do |item| %>
-                <% if item.status == "confirmed" %>
+                <% if item.status == "accepted" %>
                     <div class="show-viewings-card-infos">
                       <p><i class="fa-solid fa-calendar"></i><%= " #{item.date.strftime('%d-%m-%Y')}" %></p>
                       <p><i class="fa-solid fa-clock"></i><%= " #{item.start_time.strftime('%H:%M')}" %></p>
                       <p><i class="fa-sharp fa-solid fa-location-pin"></i> <%= "  #{item.match.listing.address}" %></p>
+                      <p><i class="fa-solid fa-circle-question"></i> <%= "  #{item.status}" %></p>
                       <%= link_to "cancel viewing", viewing_path(item), data: { turbo_method: :delete }, class: "button-secondary-small" %>
                     </div>
               <% end %>
                 <% end %>
             </div>
       </div>
-      <h5 class="viewing-subheader">viewing requests (pending host approval)</h5>
         <div class="viewings-show-container">
             <div class="show-viewings">
               <% @viewings.each do |item| %>
@@ -43,6 +43,7 @@
                       <p><i class="fa-solid fa-calendar"></i><%= " #{item.date.strftime('%d-%m-%Y')}" %></p>
                       <p><i class="fa-solid fa-clock"></i><%= " #{item.start_time.strftime('%H:%M')}" %></p>
                       <p><i class="fa-sharp fa-solid fa-location-pin"></i> <%= "  #{item.match.listing.address}" %></p>
+                      <p style="font-weight: bold; color: $white;"><i class="fa-solid fa-circle-question"></i> <%= "  #{item.status}" %></p>
                       <%= link_to "cancel request", viewing_path(item), data: { turbo_method: :delete }, class: "button-secondary-small" %>
                     </div>
                     <% end %>
@@ -57,7 +58,7 @@
   </div>
 
   <div class="profile-listings-container hide-element" data-profile-toggle-target="hidelistings">
-  <h5 class="viewing-subheader">viewing requests (your approval needed)</h5>
+    <h5 class="viewing-subheader">viewing requests</h5>
     <% if @viewings != []%>
       <div class="profile-listings">
         <% @viewings.each do |item| %>
@@ -66,18 +67,29 @@
                   <p><i class="fa-solid fa-calendar"></i><%= " #{item.date.strftime('%d-%m-%Y')}" %></p>
                   <p><i class="fa-solid fa-clock"></i><%= " #{item.start_time.strftime('%H:%M')}" %></p>
                   <p><i class="fa-sharp fa-solid fa-location-pin"></i> <%= "  #{item.match.listing.address}" %></p>
+                  <p style="font-weight: bold; color: $white;"><i class="fa-solid fa-circle-question"></i> <%= "  #{item.status}" %></p>
                   <div class="viewing-card-decide">
                     <%= link_to "accept booking", accept_booking_path(item), data: { turbo_method: :patch }, class: "button-secondary-small", id:"accept-booking" %>
                     <%= link_to "reject booking", decline_booking_path(item), data: { turbo_method: :patch }, class: "button-secondary-small" %>
                   </div>
-                </div>
-          <% else %>
+            </div>
+            <% elsif item.status == "accepted" && item.match.listing.user == current_user %>
+            <div class="show-viewings-card-infos">
+                  <p><i class="fa-solid fa-calendar"></i><%= " #{item.date.strftime('%d-%m-%Y')}" %></p>
+                  <p><i class="fa-solid fa-clock"></i><%= " #{item.start_time.strftime('%H:%M')}" %></p>
+                  <p><i class="fa-sharp fa-solid fa-location-pin"></i> <%= "  #{item.match.listing.address}" %></p>
+                  <p><i class="fa-solid fa-circle-question"></i> <%= "  #{item.status}" %></p>
+                  <div class="viewing-card-decide">
+                    <%= link_to "cancel request", viewing_path(item), data: { turbo_method: :delete }, class: "button-secondary-small" %>
+                  </div>
+            </div>
+            <% end  %>
+          <% end  %>
+          </div>
+      <% else  %>
             <div class="no-current-listings">
               <p>you have no requests yet.</p>
             </div>
           <% end %>
-     <% end %>
-  </div>
-  <% end %>
   </div>
 </div>
