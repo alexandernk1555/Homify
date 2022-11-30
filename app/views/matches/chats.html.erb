@@ -1,0 +1,94 @@
+<div class="page-header mb-5">
+  <h3>chats</h3>
+</div>
+<div class="all-chats d-flex flex-column">
+    <% @matches.each do |match| %>
+      <div class="chat-card">
+        <div class="d-flex flex-row">
+          <%= link_to match_path(match.id) do %>
+            <% if match.listing.user.profile_photo.attached? %>
+                <div class="chat-image m-0">
+                  <img src="<%=cl_image_path match.listing.user.profile_photo.key%>" class="avatar-large m-0" />
+                </div>
+                <div class="chat-card-content d-flex flex-row" style="color: black !important">
+                  <h3><%=match.listing.user.first_name%></h3>
+                  <% if match.messages.last.content.length < 30 %>
+                    <p><%=match.messages.last.content%></p>
+                  <% else  %>
+                    <p><%=match.messages.last.content[0..30]%>...</p>
+                  <% end %>
+                </div>
+            <% elsif !match.listing.user.profile_photo.attached? %>
+                <div class="chat-image">
+                  <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="avatar-large" />
+                </div>
+                <div class="chat-card-content">
+                  <h3><%=match.listing.user.first_name%></h3>
+                  <% if match.messages.last.content.length < 30 %>
+                    <p><%=match.messages.last.content%></p>
+                  <% else  %>
+                    <p><%=match.messages.last.content[0..30]%>...</p>
+                  <% end %>
+                </div>
+            <% else %>
+              <div class="no-current-matches">
+                <p>You have no current matches.</p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <%end%>
+
+
+
+  <h3>as Host</h3>
+
+    <% @listing_matches.each do |match| %>
+      <div class="chat-card">
+        <%= link_to match_path(match.id) do %>
+          <%if match.search.user.profile_photo.attached? %>
+              <div class="chat-image">
+                <img src="<%=cl_image_path match.search.user.profile_photo.key%>" class="avatar-large" />
+              </div>
+              <div class="chat-card-content">
+                <h3><%=match.search.user.first_name%></h3>
+                <% if match.messages.last.content.length < 30 %>
+                  <p><%=match.messages.last.content%></p>
+                <% else  %>
+                  <p><%=match.messages.last.content[0..30]%>...</p>
+                <% end %>
+              </div>
+          <% elsif !match.search.user.profile_photo.attached? %>
+              <div class="chat-image">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="avatar-large" />
+              </div>
+              <div class="chat-card-content">
+                <h3><%=match.search.user.first_name%></h3>
+                <% if match.messages.last.content.length < 30 %>
+                  <p><%=match.messages.last.content%></p>
+                <% else  %>
+                  <p><%=match.messages.last.content[0..30]%>...</p>
+                <% end %>
+              </div>
+
+              <div class="chat-image">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="avatar-large" />
+              </div>
+              <div class="chat-card-content">
+                <h3><%=match.listing.user.first_name%></h3>
+                <% if match.messages.last.content.length < 30 %>
+                  <p><%=match.messages.last.content%></p>
+                <% else  %>
+                  <p><%=match.messages.last.content[0..30]%>...</p>
+                <% end %>
+              </div>
+          <% else %>
+            <div class="no-current-matches">
+              <p>You have no current matches.</p>
+            </div>
+          <% end %>
+        <%end%>
+      </div>
+    <%end%>
+</div>

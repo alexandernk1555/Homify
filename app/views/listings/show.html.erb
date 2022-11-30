@@ -81,7 +81,7 @@
   </div>
 </div>
 <div class="message_cta d-flex justify-content-center mt-3 mb-3">
-  <a class="button-secondary" style="text-decoration: none !important" href="#">message  <%= @listing.user.first_name.downcase %></a>
-</div>
+  <%# <a class="button-secondary" style="text-decoration: none !important" href="#">message julia</a> %>
+  <%= link_to "message #{@listing.user.first_name.downcase}", match_path(@match.id), class: "button-secondary", style: "text-decoration: none !important"%>
 </div>
 <% end %>

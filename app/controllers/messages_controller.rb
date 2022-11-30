@@ -21,6 +21,16 @@ class MessagesController < ApplicationController
     end
   end
 
+  def messages
+
+  end
+
+  def destroy
+	  @message = Search.find(params[:id])
+	  @message.destroy
+	  redirect_to profile_path
+	end
+
   private
 
   def message_params

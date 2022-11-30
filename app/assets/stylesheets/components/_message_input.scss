@@ -1,0 +1,27 @@
+.message_input {
+
+  margin-top: 3vh;
+
+  // position: fixed;
+  // align-items: flex-end;
+
+  .form-control{
+    width: 100%;
+    background-color: $white;
+    height: 10px;
+  }
+
+  .message_input {
+    // height: 50%;
+  }
+
+  input{
+    background-color: $black;
+    border-color: none;
+    border-width: 0px;
+    border-style: none;
+    height: 50%;
+    margin-left: 3px;
+    margin-right: 0px;
+  }
+}
