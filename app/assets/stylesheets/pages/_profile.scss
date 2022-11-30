@@ -31,15 +31,30 @@
   text-decoration: none;
 }
 
+.profile_item_card img{
+  width: 30vw;
+}
+
 .profile_search_card {
   overflow: hidden;
   background: rgba(249, 246, 240, 0.07);
   border-radius: 10px;
-  padding: 16px 16px 0px 16px;
+  padding: 6px 16px 0px 16px;
 }
 
-.profile_search_card h3 {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
+.search-card-head{
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-card-body{
+  padding-top: 20px;
+  position: relative;
+}
+
+.search-price{
+  position: absolute;
+  bottom: -25px;
+  right: 0px;
+  font-weight:400;
 }

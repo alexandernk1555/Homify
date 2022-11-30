@@ -1,20 +1,87 @@
-<h3 class="section-header">Upcoming bookings</h3>
-
-<div class="viewings-show-container">
-    <% if @viewings != [] %>
-      <div class="show-viewings">
-        <% @viewings.each do |item| %>
-          <a class="viewing-wrapper" href="viewings/<%= item.id %>">
+<h3 class="section-header">viewings</h3>
+<div data-controller="profile-toggle">
+  <div class="d-flex justify-content-center">
+    <div id="index-toggle" class="button-yes-no d-flex">
+      <span
+        class="col-6 d-flex justify-content-center button-yes chosen"
+        data-action="click->profile-toggle#searches"
+        data-profile-toggle-target="searches">
+        requests by you
+      </span>
+      <span
+        class="col-6 d-flex justify-content-center button-no"
+        data-action="click->profile-toggle#listings"
+        data-profile-toggle-target="listings">
+        requests for your property
+      </span>
+    </div>
+  </div>
+<br>
+  <div class="profile-searches-container" data-profile-toggle-target="hidesearches">
+  <h5 class="viewing-subheader">upcoming viewings</h5>
+    <div class="viewings-show-container">
+      <% if @viewings != []%>
+        <div class="show-viewings">
+          <% @viewings.each do |item| %>
+            <% if item.status != "pending" %>
                 <div class="show-viewings-card-infos">
-                  <h3> <%= item.date %> </h3>
-                  <p> <%= "#{item.start_time} - #{item.end_time}" %></p>
+                  <p><i class="fa-solid fa-calendar"></i><%= " #{item.date.strftime('%d-%m-%Y')}" %></p>
+                  <p><i class="fa-solid fa-clock"></i><%= " #{item.start_time.strftime('%H:%M')}" %></p>
+                  <p><i class="fa-sharp fa-solid fa-location-pin"></i> <%= "  #{item.match.listing.address}" %></p>
+                  <%= link_to "cancel viewing", viewing_path(item), data: { turbo_method: :delete }, class: "button-secondary-small" %>
                 </div>
+              <% else %>
+                <div class="no-current-listings">
+                    <p>no upcoming viewings confirmed</p>
+                </div>
+               <% end %>
+          <% end %>
+        </div>
+    <% end %>
+   </div>
+   <h5 class="viewing-subheader">viewing requests (pending host approval)</h5>
+    <div class="viewings-show-container">
+      <% if @viewings != [] %>
+        <div class="show-viewings">
+          <% @viewings.each do |item| %>
+            <% if item.status == "pending" %>
+                <div class="show-viewings-card-infos">
+                  <p><i class="fa-solid fa-calendar"></i><%= " #{item.date.strftime('%d-%m-%Y')}" %></p>
+                  <p><i class="fa-solid fa-clock"></i><%= " #{item.start_time.strftime('%H:%M')}" %></p>
+                  <p><i class="fa-sharp fa-solid fa-location-pin"></i> <%= "  #{item.match.listing.address}" %></p>
+                  <%= link_to "cancel viewing request", viewing_path(item), data: { turbo_method: :delete }, class: "button-secondary-small" %>
+                </div>
+            <% else %>
+                <div class="no-current-listings">
+                    <p>you have no viewings booked.</p>
+                </div>
+            <% end %>
+          <% end %>
+        </div>
+    <% end %>
+   </div>
+  </div>
+
+  <div class="profile-listings-container hide-element" data-profile-toggle-target="hidelistings">
+    <% if @listings %>
+      <div class="profile-listings">
+        <%= link_to "+ add a property", new_listing_path, class:"button-primary-small" %>
+        <% @listings.each do |item| %>
+          <a class="listing-wrapper" href="listings/<%= item.id %>/edit">
+            <div class="profile_item_card mt-3">
+              <%= cl_image_tag item.photos.first.key %>
+              <div class="profile_item_card_infos">
+                <h3> <%= item.address %> </h3>
+                <p> <%= item.description %></p>
+              </div>
+            </div>
           </a>
         <% end %>
       </div>
     <% else %>
       <div class="no-current-listings">
-        <p>You have no viewings booked.</p>
+        <p>you have no requests yet.</p>
       </div>
     <% end %>
+  </div>
 </div>

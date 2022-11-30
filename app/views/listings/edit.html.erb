@@ -4,7 +4,11 @@
       <h3>edit listing</h3>
     </div>
     <%= simple_form_for @listing do |f| %>
-      <%= f.input :address, label: "address", input_html: { class:"form-input" } %>
+      <%= f.input :street, label: "street", input_html: { class:"form-input" } %>
+      <%= f.input :postcode, label: "postcode", input_html: { class:"form-input" } %>
+      <%= f.input :district, label: "district", input_html: { class:"form-input" } %>
+      <%= f.input :city, label: "city", input_html: { class:"form-input" } %>
+      <%= f.input :country, as: :text, label: "country", input_html: { class:"form-input" } %>
       <%= f.input :price, label: "rent (per month)", input_html: { class:"form-input" } %>
       <%= f.input :area_size, label: "living space (in sqm)", input_html: { class:"form-input" } %>
       <%= f.input :property_type, collection: ["apartment", "penthouse", "house", "other"], label: "property type", input_html: { class:"form-input" } %>

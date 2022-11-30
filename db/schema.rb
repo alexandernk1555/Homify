@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_031005) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_083308) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,6 +67,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_031005) do
     t.string "district"
     t.string "street"
     t.string "country"
+    t.string "city"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
@@ -117,6 +120,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_031005) do
     t.string "district"
     t.string "street"
     t.string "country"
+    t.string "city"
+    t.integer "price_max"
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 
@@ -144,6 +149,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_031005) do
     t.bigint "match_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "pending"
     t.index ["match_id"], name: "index_viewings_on_match_id"
   end
 

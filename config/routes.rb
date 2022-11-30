@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
-  resources :viewings, only: [:index]
+  resources :viewings, only: [:index, :destroy]
 
   resources :searches, only: [:new, :create, :edit, :update, :destroy]
   resources :users, only: [:show, :new, :create]
