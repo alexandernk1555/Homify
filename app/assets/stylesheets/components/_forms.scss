@@ -155,7 +155,8 @@ input[type='range']:focus::-webkit-slider-thumb {
   background: none;
 
   &:focus {
-    background-color: none;
+    opacity: 0.005;
+    color: white;
   }
 }
 

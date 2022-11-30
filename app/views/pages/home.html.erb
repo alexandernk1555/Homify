@@ -19,7 +19,7 @@
     </div>
     <%= text_field_tag :bedrooms,
       params[:bedrooms],
-      placeholder: "number of bedrooms",
+      placeholder: "number of bedrooms", collection: ["1", "2", "3", "4", "5", "more than 5"],
       class: "form-control abc mb-1"%>
     <%= submit_tag "search.", class: "search_button" %>
   <% end %>
