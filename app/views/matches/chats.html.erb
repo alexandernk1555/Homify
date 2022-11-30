@@ -49,7 +49,7 @@
   <h3>as Host</h3>
 
     <% @listing_matches.each do |match| %>
-      <div class="chat-card d-flex flex-column">
+      <div class="chat-card">
         <%= link_to match_path(match.id), class:"chat-link" do %>
           <%if match.search.user.profile_photo.attached? %>
               <div class="chat-image">
