@@ -10,6 +10,7 @@ class MatchesController < ApplicationController
     @user = current_user.id
     # @user = User.find(@match.user_id)
     @listing = Listing.find(@match.listing_id)
+    @landlord = current_user.listings.ids.include? @listing.id
   end
 
 
@@ -30,6 +31,11 @@ class MatchesController < ApplicationController
 	  @match.destroy
 	  redirect_to matches_path, notice: 'Unmatched'
 	end
+
+  def chats
+    @matches = Match.where(user_id: current_user.id)
+    @listing_matches = current_user.listing_matches
+  end
 
   private
 

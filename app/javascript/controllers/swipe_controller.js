@@ -3,11 +3,13 @@ import '../swipe_animation'
 
 // Connects to data-controller="swipe"
 export default class extends Controller {
-  static targets = ["match"]
+  static targets = ["match", "like", "nope"]
+
   // modal pop-up with show listing
   toggle(event) {
     document.getElementById(`button${event.path[2].dataset.id}`).click()
   }
+
 
   connect() {
     // Swiping function is a costumization of Hammer.JS, see below.
@@ -19,15 +21,39 @@ export default class extends Controller {
     * Licensed under the MIT license */
 
     // function to show match-animation for a set time
+    let matchCounter = 0;
     let matchAnimation = () => {
-      const match = document.getElementById("match-animation");
-      match.classList.remove('d-none');
-      setTimeout(() => {
-        match.classList.add('d-none')
-      }, 2300);
+      matchCounter += 1;
+      console.log( `🚀matchCounter is ${matchCounter}`);
+
+      if (matchCounter > 2) {
+        const match = document.getElementById("match-animation");
+        match.classList.remove('d-none');
+        setTimeout(() => {
+          match.classList.add('d-none')
+        }, 2300);
+      }
+
     }
 
 
+    //function to fade in/out "like"
+    let fadeInOutLike = () => {
+      const like = document.getElementById("fade-in-out-like");
+      like.classList.remove('d-none');
+      setTimeout(() => {
+        like.classList.add('d-none');
+      },2000);
+    }
+
+    //function to fade in/out "like"
+    let fadeInOutNope = () => {
+      const nope = document.getElementById("fade-in-out-nope");
+      nope.classList.remove('d-none');
+      setTimeout(() => {
+        nope.classList.add('d-none');
+      }, 2000);
+    }
 
     // selecting element with class profile to let profiles
     let profiles = document.querySelectorAll('.profile');
@@ -57,9 +83,13 @@ export default class extends Controller {
         if (posX > thresholdMatch) {
           profile.classList.add('profile--matching');
           console.log('✅ User is about to swipe yes')
+
+          fadeInOutLike();
         } else if (posX < -thresholdMatch) {
           profile.classList.add('profile--nexting');
           console.log('⛔ User is about to swipe no');
+
+          fadeInOutNope();
         }
 
         // user releases card on the left, near the middle or on the right

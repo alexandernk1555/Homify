@@ -1,0 +1,42 @@
+.fade-in-out-nope {
+  rotate: 20deg;
+  position: fixed;
+  top: 200px;
+  left: 110px;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  width: 25vw;
+  -webkit-animation: fadeinout 1.5s linear forwards;
+  animation: fadeinout 1.5s linear forwards;
+}
+
+.fade-in-out-container-nope {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #d21f0f;
+}
+
+.fade-in-out-text-nope {
+  font-family: 'Poppins', sans-serif;
+  font-size: 50px;
+  font-weight: 800;
+  color: #d21f0f;
+  padding: 0px 40px;
+  margin: 0px;
+
+}
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}

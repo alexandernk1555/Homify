@@ -1,0 +1,33 @@
+.chat_header {
+  // align-items: flex-start;
+  // margin-bottom: 5vh;
+  // margin-top: 3vh;
+  // position: fixed;
+  // background-color: $black;
+  // opacity: 100% !important;
+  // width: 100%;
+  display: flex;
+  margin-bottom: 15px;
+
+  h3 {
+    font-weight: 800 !important;
+    text-align: left !important;
+    margin-bottom: 3vh;
+    position: relative;
+    }
+
+  p {
+    margin-bottom: 0px;
+    }
+
+  .chat_header_text {
+    margin-left: 20px;
+    }
+
+  .chat_avatar {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-size: contain;
+  }
+}

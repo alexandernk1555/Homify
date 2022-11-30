@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :listings
+  has_many :listing_matches, through: :listings, source: :matches, foreign_key: "user_id"
   has_many :searches
   has_many :matches
   has_many :viewings, through: :matches

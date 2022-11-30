@@ -1,10 +1,12 @@
 class ListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @listings = Listing.all
+      # @listings = Listing.all
+    @listings = Listing.where.not(user_id: current_user.id)
 
     if params[:search].present?
       @search = Search.find(params[:search])
+
 
       [ "price",
       "bedrooms",
