@@ -6,3 +6,15 @@
   color: $white;
   font-size: 1rem;
 }
+
+.viewing-card-decide{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+#accept-booking{
+  color: $green;
+}

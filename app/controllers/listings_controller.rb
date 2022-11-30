@@ -97,10 +97,10 @@ class ListingsController < ApplicationController
   end
 
   def destroy
-	  @listing = Listing.find(params[:id])
-	  @listing.destroy
-	  redirect_to profile_path
-	end
+    @listing = Listing.find(params[:id])
+    @listing.destroy
+    redirect_to profile_path
+  end
 
   private
 
