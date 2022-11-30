@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   resources :matches, only: [:index, :show, :destroy]
   get "chats", to: 'matches#chats', as: :chats
 
+  patch "viewings/:id/accept" => "viewings#accept_booking", as: "accept_booking"
+  patch "viewings/:id/decline" => "viewings#decline_booking", as: "decline_booking"
+
   get "julia", to: "pages#julia"
   get "julia/:id", to: "pages#julia"
   get '/alex/' => 'pages#alex'

@@ -1,5 +1,5 @@
 class ViewingsController < ApplicationController
-  before_action :set_match, except: [:index, :destroy]
+  before_action :set_match, except: [:index, :destroy, :accept_booking, :decline_booking]
   def new
     @viewings = Viewing.new
   end
@@ -17,8 +17,24 @@ class ViewingsController < ApplicationController
 
   def destroy
     @viewing = Viewing.find(params[:id])
-	  @viewing.destroy
-	  redirect_to request.referer, status: :see_other
+    @viewing.destroy
+    redirect_to request.referer, status: :see_other
+  end
+
+  def accept_booking
+    @viewing = Viewing.find(params[:id])
+    @viewing.status = "accepted"
+    @viewing.save
+
+    redirect_to request.referer, status: :see_other
+  end
+
+  def decline_booking
+    @viewing = Viewing.find(params[:id])
+    @viewing.status = "declined"
+    @viewing.save
+
+    redirect_to request.referer, status: :see_other
   end
 
   private

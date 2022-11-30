@@ -1,9 +1,12 @@
 class ListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
+      # @listings = Listing.all
+    @listings = Listing.where.not(user_id: current_user.id)
+
     if params[:search].present?
       @search = Search.find(params[:search])
-      @listings = Listing.all
+
 
       [ "price",
       "bedrooms",
@@ -38,10 +41,18 @@ class ListingsController < ApplicationController
           @listings = @listings.where(query, value: value, min: @search.price, max: @search.price_max)
         end
       end
-    elsif params[:query].present?
-      @listings = Listing.global_search(params[:query])
-    else
-      @listings = Listing.all
+    else 
+      @listings = @listings.global_search(params[:city]) if params[:city].present?
+
+      if params[:min_price].present? && params[:max_price].present?
+        @listings = @listings.where(price: params[:min_price]..params[:max_price]) 
+      elsif params[:min_price].present?
+        @listings = @listings.where('price >= ?', params[:min_price]) 
+      elsif params[:max_price].present?
+        @listings = @listings.where('price <= ?', params[:max_price]) 
+      end
+
+      @listings = @listings.where(bedrooms: params[:bedrooms]) if params[:bedrooms].present? 
     end
     @markers = @listings.geocoded.map do |listing|
       {
@@ -97,10 +108,10 @@ class ListingsController < ApplicationController
   end
 
   def destroy
-	  @listing = Listing.find(params[:id])
-	  @listing.destroy
-	  redirect_to profile_path
-	end
+    @listing = Listing.find(params[:id])
+    @listing.destroy
+    redirect_to profile_path
+  end
 
   private
 
