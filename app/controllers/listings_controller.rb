@@ -3,7 +3,8 @@ class ListingsController < ApplicationController
   def index
     if params[:search].present?
       @search = Search.find(params[:search])
-      @listings = Listing.all
+      # @listings = Listing.all
+      @listings = Listing.where.not(user_id: current_user.id)
 
       [ "price",
       "bedrooms",
