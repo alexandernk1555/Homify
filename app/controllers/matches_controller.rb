@@ -34,6 +34,7 @@ class MatchesController < ApplicationController
 
   def chats
     @matches = Match.where(user_id: current_user.id)
+    @listing_matches = current_user.listing_matches
   end
 
   private

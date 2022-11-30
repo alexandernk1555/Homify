@@ -9,7 +9,9 @@
     <% end %>
     </div>
     <div class="chat_header_text">
+      <%= link_to chats_path do%>
       <p><i class="fa-solid fa-chevron-left"></i>   go back</p>
+      <% end %>
       <h3><%= "#{@landlord ? @match.search.user.first_name.downcase : @match.listing.user.first_name.downcase}" %></h3>
     </div>
   </div>
