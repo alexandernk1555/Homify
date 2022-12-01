@@ -44,10 +44,6 @@ export default class extends Controller {
     return currentUserIsSender ? "sender-style" : "receiver-style"
   }
 
-  resetForm(event) {
-    event.target.reset()
-  }
-
   disconnect() {
     console.log("Unsubscribed from the chatroom")
     this.channel.unsubscribe()
