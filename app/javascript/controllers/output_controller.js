@@ -7,7 +7,7 @@ export default class extends Controller {
   connect() {
     const rangeInput = document.querySelectorAll(".range-input input"),
     range = document.querySelector(".slider .progress");
-    let priceGap = 1000;
+    let priceGap = 200;
 
     rangeInput.forEach((input) => {
       input.addEventListener("input", (e) => {

@@ -18,10 +18,13 @@ user_1 = User.create!(
 	last_name: "Fernandez",
 	email: "olivia@gmail.com",	
 	password: "123456",
-	profile_picture: "https://media.istockphoto.com/id/614114928/photo/young-beautiful-woman.jpg?s=612x612&w=0&k=20&c=pgX41W9oQXnfARjOBzLTu3msjjT1n0L7rFOKa5VuQ54=",
 	gender: "female",
 	age: 27
 )
+
+file_olivia = URI.open("https://media.baerkarrer.ch/karmarun/image/upload/baer-karrer/sbjf3nj4ar3peoj2cg4n.jpg")
+user_1.profile_photo.attach(io: file_olivia, filename: "pic_olivia.png", content_type: "image/jpg")
+user_1.save
 
 user_2 = User.create!(
 	first_name: "Amelia",
@@ -246,7 +249,7 @@ listing_1.photos.attach(io: file_1, filename: "pic_1.png", content_type: "image/
 listing_1.save
 
 listing_2 = Listing.create!(
-	price: 2450, 
+	price: 1450, 
 	bedrooms: 2, 
 	bathrooms: 2, 
 	city: "Hamburg",
@@ -274,7 +277,7 @@ listing_2.photos.attach(io: file_2, filename: "pic_2.png", content_type: "image/
 listing_2.save
 
 listing_3 = Listing.create!(
-	price: 2600, 
+	price: 1600, 
 	bedrooms: 3, 
 	bathrooms: 2, 
 	city: "Hamburg",
@@ -295,7 +298,7 @@ listing_3 = Listing.create!(
 	pets: true,
 	lift: false,
 	furnished: true,
-	user: user_2
+	user: user_1
 )
 
 file_3 = URI.open("https://cdnm.westwing.com/image/upload/v1/contenthub/app/uploads/de/2021/09/03084942/modern-wohnen-wohnen.jpg")
@@ -303,14 +306,14 @@ listing_3.photos.attach(io: file_3, filename: "pic_3.png", content_type: "image/
 listing_3.save
 
 listing_4 = Listing.create!(
-	price: 2999, 
+	price: 1999, 
 	bedrooms: 3, 
 	bathrooms: 2, 
-	city: "Düsseldorf",
+	city: "Hamburg",
 	country: "Germany",
-	street: "Lorettostraße 34",
-	district: "Unterbilk",
-	postcode: 40219,
+	street: "Lottestraße 13",
+	district: "Unterbilk <<<",
+	postcode: 22529,
 	# photos: "https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg", 
 	description: "This bright property is finished to the highest standard and comprises of a fully fitted modern kitchen with dining area and a light reception room with full double height ceilings and tasteful décor throughout. A mezzanine study area overlooking the reception room, master bedroom suite with walk in dressing area and a large bathroom along with a further double bedroom and guest bathroom. This property also benefits from secure allocated parking space in the gated building.", 
 	property_type: "Apartment", 
@@ -364,11 +367,11 @@ listing_6 = Listing.create!(
 	price: 2455, 
 	bedrooms: 3, 
 	bathrooms: 2, 
-	city: "Düsseldorf",
+	city: "Hamburg",
 	country: "Germany",
-	street: "Rheinallee 100",
-	district: "Oberkassel",
-	postcode: 40545,
+	street: "Lütt Süderfeld 1",
+	district: "Oberkassel <<<",
+	postcode: 22529,
 	# photos: "https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg", 
 	description: "A stunning, chic, modern, high-ceiling split-level penthouse apartment in a prestigious period building. The apartment comprises three bedrooms with ample wardrobes, cupboards, and storage spaces; two elegant marble bathrooms - one end-suite; an amazing huge lofty open reception, dining, entertaining area with a contemporary top-end designer’s kitchen with high-end appliances and granite worktop. The whole apartment has underfloor heating throughout which provides extra comforts under your feet. The beautiful skylights and floor-to-ceiling windows provide abundant natural light to the apartment even in the dark winters, and it further benefits from a huge private roof terrace which is very rare! It also has direct lift access to the apartment.", 
 	property_type: "Penthouse", 
@@ -390,14 +393,14 @@ listing_6.photos.attach(io: file_6, filename: "pic_6.png", content_type: "image/
 listing_6.save
 
 listing_7 = Listing.create!(
-	price: 2600, 
+	price: 850, 
 	bedrooms: 4, 
 	bathrooms: 2, 
-	city: "Düsseldorf",
+	city: "Hamburg",
 	country: "Germany",
-	street: "Kaiser-Friedrich-Ring 26",
-	district: "Oberkassel",
-	postcode: 40545,
+	street: "Kaiser-Friedrich-Ufer 43",
+	district: "Oberkassel <<<",
+	postcode: 20253,
 	# photos: "https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg", 
 	description: "If proceeding without a physical viewing please note that you must make all necessary additional investigations to satisfy yourself that all requirements you have of the property will be met. Video content and other marketing materials shown are believed to fairly represent the property at the time they were created.", 
 	property_type: "Apartment", 
@@ -419,7 +422,7 @@ listing_7.photos.attach(io: file_7, filename: "pic_7.png", content_type: "image/
 listing_7.save
 
 listing_8 = Listing.create!(
-	price: 3990, 
+	price: 990, 
 	bedrooms: 4, 
 	bathrooms: 4, 
 	city: "Hamburg",
@@ -448,14 +451,14 @@ listing_8.photos.attach(io: file_8, filename: "pic_8.png", content_type: "image/
 listing_8.save
 
 listing_9 = Listing.create!(
-	price: 3200, 
+	price: 1320, 
 	bedrooms: 2, 
 	bathrooms: 2, 
-	city: "Düsseldorf",
+	city: "Hamburg",
 	country: "Germany",
-	street: "Luegallee 68",
-	district: "Oberkassel",
-	postcode: 40545,
+	street: "Gustav-Falke-Straße 58",
+	district: "Oberkassel <<<",
+	postcode: 20144,
 	# photos: "https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg", 
 	description: "Double bedroom apartment available. There is one large master bedroom and a smaller double bedroom. Both bedrooms have built-in wardrobes. Offered part furnished.", 
 	property_type: "Apartment", 
@@ -469,7 +472,7 @@ listing_9 = Listing.create!(
 	pets: true,
 	lift: false,
 	furnished: true,
-	user: user_2
+	user: user_1
 )
 
 file_9 = URI.open("https://i.pinimg.com/originals/74/c3/d2/74c3d2b660695225483d33f925bbfcd4.jpg")
@@ -477,7 +480,7 @@ listing_9.photos.attach(io: file_9, filename: "pic_9.png", content_type: "image/
 listing_9.save
 
 listing_10 = Listing.create!(
-	price: 2200, 
+	price: 1200, 
 	bedrooms: 3, 
 	bathrooms: 2, 
 	city: "Hamburg",
@@ -509,11 +512,11 @@ listing_11 = Listing.create!(
 	price: 1700, 
 	bedrooms: 2, 
 	bathrooms: 2, 
-	city: "Düsseldorf",
+	city: "Hamburg",
 	country: "Germany",
-	street: "Düsseldorfer Str. 56",
-	district: "Oberkassel",
-	postcode: 40545,
+	street: "Kippingstraße 16",
+	district: "Oberkassel <<<",
+	postcode: 20144,
 	# photos: "https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg", 
 	description: "A truly stunning 2 bedroom, 2 bathroom apartment with private terrace. Offering a spacious interior designed and finished to a very high specification. Comprising of a large open plan lounge / kitchen, 2 luxury bathrooms and 2 double bedrooms. Further benefiting from a private terrace.", 
 	property_type: "Apartment", 
@@ -535,14 +538,14 @@ listing_11.photos.attach(io: file_11, filename: "pic_11.png", content_type: "ima
 listing_11.save
 
 listing_12 = Listing.create!(
-	price: 5000, 
+	price: 1430, 
 	bedrooms: 4, 
 	bathrooms: 2, 
-	city: "Düsseldorf",
+	city: "Hamburg",
 	country: "Germany",
-	street: "Heinrich-Heine-Gärten 2",
-	district: "Heerdt",
-	postcode: 40549,
+	street: "Johnsallee 32",
+	district: "Heerdt <<<",
+	postcode: 20148,
 	# photos: "https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg", 
 	description: "A recently refurbished apartment finished to exacting standards on the 1st floor of this popular portered building with lift access. The property benefits from wood flooring, fully equipped kitchen with Miele appliances, four bathrooms and large terrace. Furnished or unfurnished. Long let.", 
 	property_type: "Apartment", 
@@ -556,7 +559,7 @@ listing_12 = Listing.create!(
 	pets: true,
 	lift: true,
 	furnished: true,
-	user: user_2
+	user: user_1
 )
 
 file_12 = URI.open("https://www.solebich.de/sites/www.solebich.de/files/styles/fluid-fixed-width-1400/public/content/58163/images/5563105-bild-von-dieartige-1667326637.jpg")
@@ -564,14 +567,14 @@ listing_12.photos.attach(io: file_12, filename: "pic_12.png", content_type: "ima
 listing_12.save
 
 listing_13 = Listing.create!(
-	price: 4200, 
+	price: 1400, 
 	bedrooms: 4, 
 	bathrooms: 3, 
-	city: "Düsseldorf",
+	city: "Hamburg",
 	country: "Germany",
-	street: "Wildenbruchstraße 68",
-	district: "Oberkassel",
-	postcode: 40545,
+	street: "Lichtwarkstraße 9",
+	district: "Oberkassel <<<",
+	postcode: 20249,
 	# photos: "https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg", 
 	description: "A newly refurbished four bedroom lateral apartment in this prestigious portered mansion block with lift and communal gardens, the ideal family flat! The apartment is within Bousfield catchment area and with easy access to Earls Court Road tube station as well as Gloucester Road. Both South Kensington and Chelsea are also within a short walk.", 
 	property_type: "Apartment", 
@@ -683,11 +686,11 @@ listing_17 = Listing.create!(
 	price: 2100, 
 	bedrooms: 3, 
 	bathrooms: 2, 
-	city: "Düsseldorf",
+	city: "Hamburg",
 	country: "Germany",
-	street: "Königsallee 20",
-	district: "Stadtmitte",
-	postcode: 40212,
+	street: "Südring 12",
+	district: "Stadtmitte <<<",
+	postcode: 22303,
 	# photos: "https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg", 
 	description: "Fully furnished. Available to move 13th December.", 
 	property_type: "Apartment", 
@@ -701,7 +704,7 @@ listing_17 = Listing.create!(
 	pets: true,
 	lift: false,
 	furnished: true,
-	user: user_2
+	user: user_1
 )
 
 file_17 = URI.open("https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg")
@@ -709,14 +712,14 @@ listing_17.photos.attach(io: file_17, filename: "pic_17.png", content_type: "ima
 listing_17.save
 
 listing_18 = Listing.create!(
-	price: 1800, 
+	price: 1050, 
 	bedrooms: 1, 
 	bathrooms: 1, 
-	city: "München",
+	city: "Hamburg",
 	country: "Germany",
-	street: "Prälat-Zistl-Straße 6",
-	district: "Altstadt-Lehel",
-	postcode: 80331,
+	street: "Ligusterweg 27",
+	district: "Altstadt-Lehel <<<",
+	postcode: 22609,
 	# photos: "https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg", 
 	description: "1 bedroom apartment comprises of a large double bedroom, bathroom, spacious reception room with rear facing views over Hay's Mews and a unique kitchenette. This beautiful prupose built building benefits from spacious living accommodation, lift service and on-site building manager.", 
 	property_type: "Apartment", 
@@ -738,14 +741,14 @@ listing_18.photos.attach(io: file_18, filename: "pic_18.png", content_type: "ima
 listing_18.save
 
 listing_19 = Listing.create!(
-	price: 1990, 
+	price: 1390, 
 	bedrooms: 3, 
 	bathrooms: 1, 
-	city: "München", 
+	city: "Hamburg", 
 	country: "Germany",
-	street: "Rabenkopfstraße 31",
-	district: "Untergiesing-Harlaching",
-	postcode: 81545,
+	street: "Elbchaussee 409",
+	district: "Untergiesing-Harlaching <<<",
+	postcode: 22609,
 	# photos: "https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg", 
 	description: "A brand newly re-decorated and re-carpeted four bedroom lateral, penthouse apartment with fantastic views of the City. The property comprises of an incredibly generous reception room with a door leading to a South-West facing balcony, a separate kitchen and a well-proportioned dining room. The principal bedroom boasts a great amount of storage and a bathroom which can be used as an en-suite, there are an additional two good sized double bedrooms.", property_type: "Penthouse apartment", 
 
@@ -759,7 +762,7 @@ listing_19 = Listing.create!(
 	pets: true,
 	lift: false,
 	furnished: true,
-	user: user_2
+	user: user_1
 )
 
 file_19 = URI.open("https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg")
@@ -767,7 +770,7 @@ listing_19.photos.attach(io: file_19, filename: "pic_19.png", content_type: "ima
 listing_19.save
 
 listing_20 = Listing.create!(
-	price: 2200, 
+	price: 1200, 
 	bedrooms: 3, 
 	bathrooms: 2, 
 	city: "München",
@@ -796,7 +799,7 @@ listing_20.photos.attach(io: file_20, filename: "pic_20.png", content_type: "ima
 listing_20.save
 
 listing_21 = Listing.create!(
-	price: 1900, 
+	price: 1350, 
 	bedrooms: 1, 
 	bathrooms: 1, 
 	city: "München",
@@ -817,7 +820,7 @@ listing_21 = Listing.create!(
 	pets: true,
 	lift: false,
 	furnished: true,
-	user: user_2
+	user: user_1
 )
 
 file_21 = URI.open("https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg")
@@ -825,7 +828,7 @@ listing_21.photos.attach(io: file_21, filename: "pic_21.png", content_type: "ima
 listing_21.save
 
 listing_22 = Listing.create!(
-	price: 2690, 
+	price: 990, 
 	bedrooms: 3, 
 	bathrooms: 2, 
 	city: "München", 
@@ -854,7 +857,7 @@ listing_22.photos.attach(io: file_22, filename: "pic_22.png", content_type: "ima
 listing_22.save
 
 listing_23 = Listing.create!(
-	price: 2980, 
+	price: 980, 
 	bedrooms: 3, 
 	bathrooms: 2, 
 	city: "Düsseldorf",
@@ -875,7 +878,7 @@ listing_23 = Listing.create!(
 	pets: true,
 	lift: false,
 	furnished: true,
-	user: user_2
+	user: user_1
 )
 
 file_23 = URI.open("https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg")
@@ -883,7 +886,7 @@ listing_23.photos.attach(io: file_23, filename: "pic_23.png", content_type: "ima
 listing_23.save
 
 listing_24 = Listing.create!(
-	price: 3200, 
+	price: 1280, 
 	bedrooms: 4, 
 	bathrooms: 2, 
 	city: "Hamburg",
@@ -912,7 +915,7 @@ listing_24.photos.attach(io: file_24, filename: "pic_24.png", content_type: "ima
 listing_24.save
 
 listing_25 = Listing.create!(
-	price: 3400, 
+	price: 1400, 
 	bedrooms: 2, 
 	bathrooms: 1, 
 	city: "München",
@@ -941,7 +944,7 @@ listing_25.photos.attach(io: file_25, filename: "pic_25.png", content_type: "ima
 listing_25.save
 
 listing_26 = Listing.create!(
-	price: 3600, 
+	price: 1650, 
 	bedrooms: 2, 
 	bathrooms: 2, 
 	city: "München",
@@ -970,7 +973,7 @@ listing_26.photos.attach(io: file_26, filename: "pic_26.png", content_type: "ima
 listing_26.save
 
 listing_27 = Listing.create!(
-	price: 1800, 
+	price: 1190, 
 	bedrooms: 1, 
 	bathrooms: 1, 
 	city: "München", 
@@ -991,7 +994,7 @@ listing_27 = Listing.create!(
 	pets: true,
 	lift: false,
 	furnished: true,
-	user: user_2
+	user: user_1
 )
 
 file_27 = URI.open("https://i.pinimg.com/736x/cd/02/a0/cd02a0baa56862b402ee75263260140c.jpg")
@@ -999,7 +1002,7 @@ listing_27.photos.attach(io: file_27, filename: "pic_27.png", content_type: "ima
 listing_27.save
 
 listing_28 = Listing.create!(
-	price: 4100, 
+	price: 1220, 
 	bedrooms: 3, 
 	bathrooms: 2, 
 	city: "Düsseldorf", 
@@ -1028,7 +1031,7 @@ listing_28.photos.attach(io: file_28, filename: "pic_28.png", content_type: "ima
 listing_28.save
 
 listing_29 = Listing.create!(
-	price: 4300, 
+	price: 1299, 
 	bedrooms: 4, 
 	bathrooms: 2, 
 	city: "München", 
@@ -1057,7 +1060,7 @@ listing_29.photos.attach(io: file_29, filename: "pic_29.png", content_type: "ima
 listing_29.save
 
 listing_30 = Listing.create!(
-	price: 7000, 
+	price: 700, 
 	bedrooms: 5, 
 	bathrooms: 4, 
 	city: "München",
