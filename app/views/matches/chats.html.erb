@@ -47,9 +47,10 @@
 
 
   <div class="chat_divider mt-5">
+  <% if @listing_matches.present? %>
     <h3>as host</h3>
+    <% end %>
   </div>
-
     <% @listing_matches.each do |match| %>
       <div class="chat-card">
         <%= link_to match_path(match.id), class:"chat-link" do %>
