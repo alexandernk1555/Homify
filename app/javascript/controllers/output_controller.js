@@ -26,8 +26,8 @@ export default class extends Controller {
 
           console.log((minVal / parseInt(rangeInput[0].max)) * 100 + "%") 
           console.log(100 - (maxVal / parseInt(rangeInput[1].max)) * 100 + "%") 
-          this.outputMinTarget.style.left = (minVal / parseInt(rangeInput[0].max)) * 100 + "%";
-          this.outputMaxTarget.style.right = 100 - (maxVal / parseInt(rangeInput[1].max)) * 100 + "%";
+          this.outputMinTarget.style.left = (minVal / parseInt(rangeInput[0].max)) * 100 - 3 + "%";
+          this.outputMaxTarget.style.right = 100 - (maxVal / parseInt(rangeInput[1].max)) * 100 - 5 + "%";
           
           this.outputMinTarget.innerText = minVal
           this.outputMaxTarget.innerText = maxVal
