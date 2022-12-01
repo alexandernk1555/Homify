@@ -22,7 +22,13 @@
 
   .chat_header_text {
     margin-left: 20px;
+
+    a{
+      text-decoration: none;
+      color: $white;
     }
+
+  }
 
   .chat_avatar {
     width: 75px;

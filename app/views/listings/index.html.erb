@@ -74,7 +74,7 @@
                 </div>
 
 
-                <div style="width: 100%; height: 300px;"
+                <div style="width: 100%; height: 300px; border-radius: 10px;"
                   data-controller="map"
                   data-map-markers-value="<%= @markers.select { |marker| marker[:id] == listing.id }.to_json %>"
                   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

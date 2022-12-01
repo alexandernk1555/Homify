@@ -36,7 +36,7 @@
                 </div>
             <% else %>
               <div class="no-current-matches">
-                <p>You have no current matches.</p>
+                <p>you have no current matches.</p>
               </div>
             <% end %>
           <% end %>
@@ -46,7 +46,9 @@
 
 
 
-  <h3>as Host</h3>
+  <div class="chat_divider mt-5">
+    <h3>as host</h3>
+  </div>
 
     <% @listing_matches.each do |match| %>
       <div class="chat-card">
@@ -81,7 +83,7 @@
               </div>
           <% else %>
             <div class="no-current-matches">
-              <p>You have no current matches.</p>
+              <p>you have no current matches.</p>
             </div>
           <% end %>
         <%end%>

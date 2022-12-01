@@ -42,11 +42,15 @@
                 <a class="button-secondary-small" href="searches/<%= item.id %>/edit">edit</a>
                 <%= link_to "x", search_path(item), data: { turbo_method: :delete }, class: "button-secondary-small" %>
               </div>
-              <%= link_to listings_path(search: item.id) do %>
+              <%= link_to listings_path(search: item.id), class: "search-body-link" do %>
                 <div class="search-card-body">
-                  <p><i class="fa-sharp fa-solid fa-location-pin"> </i><%= " #{item.address}" %> </p>
+                  <p><i class="fa-sharp fa-solid fa-location-pin me-2"> </i><%= "#{item.city}" %> </p>
+                  <% if  item.bedrooms.nil? %>
+                  <p><i class="fa-solid fa-bed me-4"></i><%= "-" %></p>
+                  <% else %>
                   <p><i class="fa-solid fa-bed me-4"></i><%= "#{item.bedrooms}" %></p>
-                  <p class="search-price"><%= "€#{item.price}/month" %></p>
+                  <% end %>
+                  <p class="search-price"><%= "€#{item.price}-#{item.price_max}/month" %></p>
                 </div>
               <% end %>
             </div>
