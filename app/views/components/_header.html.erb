@@ -6,7 +6,9 @@
         <%= link_to "login", new_user_session_path, class: "button-primary-small align-left" %>
       <% elsif controller_name == 'listings' && action_name == 'index' && params[:search].present? %>
         <%= image_tag "homify_logo.png" %>
-        <%= link_to "filter", edit_search_path(search), class: "button-primary align-left" %>
+        <%= link_to edit_search_path(search), class: "align-left" do %>
+          <i class="fa-solid fa-filter filter-button"></i>
+        <% end %>
       <% else %>
         <%= image_tag "homify_logo.png" %>
       <% end %>
