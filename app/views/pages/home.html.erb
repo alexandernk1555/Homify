@@ -1,9 +1,9 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.pinimg.com/564x/ba/c1/c3/bac1c3bf86a6bcd31eb4c2acc2ac05dd.jpg);">
-    
+
   <h1>find your dream home.</h1>
   <%= form_with url: listings_path, method: :get, class: "form homepage-minisearch" do %>
     <%= text_field_tag :city,
-      params[:city], 
+      params[:city],
       placeholder: "city",
       class: "form-control abc mb-1"%>
     <div class="price-field mb-1 abc">
@@ -21,6 +21,6 @@
       params[:bedrooms],
       placeholder: "number of bedrooms", collection: ["1", "2", "3", "4", "5", "more than 5"],
       class: "form-control abc mb-1"%>
-    <%= submit_tag "search.", class: "search_button" %>
+    <%= submit_tag "search", class: "search_button" %>
   <% end %>
 </div>
