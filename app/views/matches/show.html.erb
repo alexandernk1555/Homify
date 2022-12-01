@@ -33,9 +33,9 @@
 
   </div>
 
-  <div class="message_input">
+  <div class="message_input" data-controller="clear-chat-form">
     <%= simple_form_for [@match, @message],
-    html: { data: { action: "turbo:submit-end->match-subscription#resetForm" }, class: "d-flex" } do |f| %>
+    html: { data: { action: "turbo:submit-end->clear-chat-form#resetForm" }, class: "d-flex" } do |f| %>
       <%= f.input :content,
         label: false,
         placeholder: "message #{@landlord ? @match.search.user.first_name.downcase : @match.listing.user.first_name.downcase}",
