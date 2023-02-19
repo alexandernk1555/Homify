@@ -4,10 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["searches", "listings"];
 
-  connect() {
-    console.log('hello from button-searches-listings');
-  }
-
   searches() {
     this.searchesTarget.classList.add("chosen")
     this.listingsTarget.classList.remove("chosen")
