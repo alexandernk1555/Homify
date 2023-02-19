@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  
   def index
     # user cannot see and swipe on own listings.
     @listings = Listing.where.not(user_id: current_user.id)

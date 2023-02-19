@@ -1,5 +1,4 @@
 class SearchesController < ApplicationController
-
   def new
     @searches = Search.all
     @search = Search.new
@@ -13,7 +12,7 @@ class SearchesController < ApplicationController
       redirect_to listings_path(search: @search.id)
     end
   end
-  
+
   def edit
     @search = Search.find(params[:id])
   end
@@ -30,10 +29,31 @@ class SearchesController < ApplicationController
     redirect_to request.referer, status: :see_other
   end
 
-
   private
 
   def search_params
-    params.require(:search).permit(:price, :price_max, :bedrooms, :bathrooms, :address, :property_type, :area_size, :floor, :garden, :balcony, :parking, :occupation, :family_status, :pets, :lift, :furnished, :postcode, :city, :district, :street, :country)
+    params.require(:search).permit(
+      :price,
+      :price_max,
+      :bedrooms,
+      :bathrooms,
+      :address,
+      :property_type,
+      :area_size,
+      :floor,
+      :garden,
+      :balcony,
+      :parking,
+      :occupation,
+      :family_status,
+      :pets,
+      :lift,
+      :furnished,
+      :postcode,
+      :city,
+      :district,
+      :street,
+      :country
+    )
   end
 end
