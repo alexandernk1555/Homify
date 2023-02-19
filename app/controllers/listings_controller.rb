@@ -1,14 +1,13 @@
 class ListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-      # @listings = Listing.all
+    # user cannot see and swipe on own listings.
     @listings = Listing.where.not(user_id: current_user.id)
 
     if params[:search].present?
       @search = Search.find(params[:search])
 
-
-      [ "price",
+      ["price",
       "bedrooms",
       "bathrooms",
       "address",
@@ -29,7 +28,7 @@ class ListingsController < ApplicationController
       "occupation",
       "pets",
       "lift",
-      "furnished",].each do |column|
+      "furnished"].each do |column|
         value = @search.send(column.to_sym)
         if value.present?
           if column == "price"
@@ -41,18 +40,18 @@ class ListingsController < ApplicationController
           @listings = @listings.where(query, value: value, min: @search.price, max: @search.price_max)
         end
       end
-    else 
+    else
       @listings = @listings.global_search(params[:city]) if params[:city].present?
 
       if params[:min_price].present? && params[:max_price].present?
-        @listings = @listings.where(price: params[:min_price]..params[:max_price]) 
+        @listings = @listings.where(price: params[:min_price]..params[:max_price])
       elsif params[:min_price].present?
-        @listings = @listings.where('price >= ?', params[:min_price]) 
+        @listings = @listings.where('price >= ?', params[:min_price])
       elsif params[:max_price].present?
-        @listings = @listings.where('price <= ?', params[:max_price]) 
+        @listings = @listings.where('price <= ?', params[:max_price])
       end
 
-      @listings = @listings.where(bedrooms: params[:bedrooms]) if params[:bedrooms].present? 
+      @listings = @listings.where(bedrooms: params[:bedrooms]) if params[:bedrooms].present?
     end
     @markers = @listings.geocoded.map do |listing|
       {
@@ -118,5 +117,4 @@ class ListingsController < ApplicationController
   def listing_params
     params.require(:listing).permit(:price, :bedrooms, :bathrooms, :address, :description, :property_type, :area_size, :floor, :garden, :balcony, :parking, :family_status, :occupation, :pets, :lift, :furnished, :user_id, :city, :district, :postcode, :street, :country, photos: [])
   end
-
 end

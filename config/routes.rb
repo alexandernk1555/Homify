@@ -26,11 +26,7 @@ Rails.application.routes.draw do
   patch "viewings/:id/accept" => "viewings#accept_booking", as: "accept_booking"
   patch "viewings/:id/decline" => "viewings#decline_booking", as: "decline_booking"
 
-  get "julia", to: "pages#julia"
-  get "julia/:id", to: "pages#julia"
-  get '/alex/' => 'pages#alex'
   # Defines the root path route ("/")
-  get "/alexander/", to: "pages#alexander"
   get '/show/' => 'pages#show'
   get 'profile/' => 'pages#profile'
 end
