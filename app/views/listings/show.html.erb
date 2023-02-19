@@ -32,34 +32,21 @@
   <ul class="d-flex flex-column col-6" style="list-style: none; margin: 0px; padding: 0px">
     <li><p><i class="fa-solid fa-house me-4"></i><%="#{@listing.property_type}"%></p></li>
     <li><p><i class="fa-solid fa-chair me-4"></i><%= @listing.furnished ? "yes" : "no" %></p></li>
-    <li><p><i class="fa-solid fa-car me-4"></i><%if "#{@listing.parking}"=="true"%>
-    <%="yes"%>
-    <%else%>
-    <%="no"%>
-    <%end%></p></li>
-    <li><p><i class="fa-solid fa-tree me-4"></i><%if "#{@listing.garden}"=="true"%>
-    <%="yes"%>
-    <%else%>
-    <%="no"%>
-    <%end%></p></li>
-    <li><p><i class="fa-solid fa-elevator me-4"></i><%if "#{@listing.lift}"=="true"%>
-    <%="yes"%>
-    <%else%>
-    <%="no"%>
-    <%end%></p></li>
+    <li><p><i class="fa-solid fa-car me-4"></i><%= @listing.parking ? "yes" : "no" %></p></li>
+    <li><p><i class="fa-solid fa-tree me-4"></i><%= @listing.garden ? "yes" : "no" %></p></li>
+    <li><p><i class="fa-solid fa-elevator me-4"></i><%= @listing.lift ? "yes" : "no" %></p></li>
   </ul>
 </div>
+
 <div class="apartment_information_card mt-4">
   <p><%="#{@listing.description}"%></p>
 </div>
 
-
-  <div style="width: 100%; height: 300px; border-radius: 10px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
+<div style="width: 100%; height: 300px; border-radius: 10px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
 <% if @match %>
 <div class="viewing_cta d-flex justify-content-center mt-3 flex-column">
@@ -82,7 +69,6 @@
   </div>
 </div>
 <div class="message_cta d-flex justify-content-center mt-3 mb-3">
-  <%# <a class="button-secondary" style="text-decoration: none !important" href="#">message julia</a> %>
   <%= link_to "message #{@listing.user.first_name.downcase}", match_path(@match.id), class: "button-secondary", style: "text-decoration: none !important"%>
 </div>
 <% end %>
