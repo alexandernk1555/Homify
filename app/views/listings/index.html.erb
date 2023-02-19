@@ -55,21 +55,9 @@
                   <ul class="d-flex flex-column col-6" style="list-style: none; margin: 0px; padding: 0px">
                     <li><p><i class="fa-solid fa-house me-4"></i><%="#{listing.property_type}"%></p></li>
                     <li><p><i class="fa-solid fa-chair me-4"></i><%= listing.furnished ? "yes" : "no" %></p></li>
-                    <li><p><i class="fa-solid fa-car me-4"></i><%if "#{listing.parking}"=="true"%>
-                    <%="yes"%>
-                    <%else%>
-                    <%="no"%>
-                    <%end%></p></li>
-                    <li><p><i class="fa-solid fa-tree me-4"></i><%if "#{listing.garden}"=="true"%>
-                    <%="yes"%>
-                    <%else%>
-                    <%="no"%>
-                    <%end%></p></li>
-                    <li><p><i class="fa-solid fa-elevator me-4"></i><%if "#{listing.lift}"=="true"%>
-                    <%="yes"%>
-                    <%else%>
-                    <%="no"%>
-                    <%end%></p></li>
+                    <li><p><i class="fa-solid fa-car me-4"></i><%= listing.parking ? "yes" : "no" %></p></li>
+                    <li><p><i class="fa-solid fa-tree me-4"></i><%= listing.garden ? "yes" : "no" %></p></li>
+                    <li><p><i class="fa-solid fa-elevator me-4"></i><%= listing.lift ? "yes" : "no" %></p></li>
                   </ul>
                 </div>
 
@@ -86,10 +74,6 @@
               </div>
 
             </div>
-            <%# <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div> %>
           </div>
         </div>
       </div>
