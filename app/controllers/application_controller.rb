@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
@@ -12,6 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-      profile_path(current_user)
+    profile_path(current_user)
   end
 end
