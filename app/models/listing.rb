@@ -22,5 +22,4 @@ class Listing < ApplicationRecord
   def update_address
     update(address: "#{street}, #{postcode} #{city}, #{country}")
   end
-
 end
