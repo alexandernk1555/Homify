@@ -1,5 +1,6 @@
 class ViewingsController < ApplicationController
   before_action :set_match, except: [:index, :destroy, :accept_booking, :decline_booking]
+
   def new
     @viewings = Viewing.new
   end

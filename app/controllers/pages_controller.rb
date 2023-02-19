@@ -14,21 +14,4 @@ class PagesController < ApplicationController
     @listings = @user.listings
     @searches = @user.searches
   end
-
-
-  def julia
-
-  end
-
-  def components_alex
-  end
-
-  def alex
-
-  end
-
-  def jorgen
-  end
-
-
 end

@@ -1,5 +1,4 @@
 class MatchesController < ApplicationController
-
   def index
     @matches = Match.where(user_id: current_user.id)
   end
@@ -13,8 +12,6 @@ class MatchesController < ApplicationController
     @landlord = current_user.listings.ids.include? @listing.id
   end
 
-
-
   def create
     @match = Match.new(match_params)
     user = current_user
@@ -27,10 +24,10 @@ class MatchesController < ApplicationController
   end
 
   def destroy
-	  @match = Match.find(params[:id])
-	  @match.destroy
-	  redirect_to matches_path, notice: 'Unmatched'
-	end
+    @match = Match.find(params[:id])
+    @match.destroy
+    redirect_to matches_path, notice: 'Unmatched'
+  end
 
   def chats
     @matches = Match.where(user_id: current_user.id)
