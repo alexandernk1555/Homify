@@ -63,7 +63,7 @@
       <div class="profile-listings">
         <% @viewings.each do |item| %>
           <% if item.status == "pending" && item.match.listing.user == current_user %>
-          <div class="show-viewings-card-infos">
+            <div class="show-viewings-card-infos">
                   <p><i class="fa-solid fa-calendar"></i><%= " #{item.date.strftime('%d-%m-%Y')}" %></p>
                   <p><i class="fa-solid fa-clock"></i><%= " #{item.start_time.strftime('%H:%M')}" %></p>
                   <p><i class="fa-sharp fa-solid fa-location-pin"></i> <%= "  #{item.match.listing.address}" %></p>

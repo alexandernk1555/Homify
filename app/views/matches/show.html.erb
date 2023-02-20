@@ -21,7 +21,6 @@
     data-match-subscription-match-id-value="<%= @match.id %>"
     data-match-subscription-current-user-id-value="<%= current_user.id %>"
     style="flex-grow: 1; overflow: scroll;">
-
     <div class="messages" data-match-subscription-target="messages">
       <% @match.messages.each do |message| %>
         <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
@@ -31,7 +30,6 @@
         </div>
       <% end %>
     </div>
-
   </div>
 
   <div class="message_input" data-controller="clear-chat-form">
