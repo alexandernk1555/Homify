@@ -12,7 +12,7 @@ export default class extends Controller {
 
 
   connect() {
-    // Swiping function is a costumization of Hammer.JS, see below.
+    // Swiping function is made with Hammer.JS, see below.
 
     /*! Hammer.JS - v2.0.8 - 2016-04-23
     * http://hammerjs.github.io/
@@ -103,7 +103,7 @@ export default class extends Controller {
 
             if (matchCounter > 2) {
               // creating a new match in matches-table.
-              console.log( `🚀matchCounter is ${matchCounter}`);
+              console.log( `matchCounter is ${matchCounter}`);
               console.dir(document.location.search.split('=')[1]);
               const searchId = document.location.search.split('=')[1];
               const url =  `/listings/${profile.dataset.id}/matches`;
