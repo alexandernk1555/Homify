@@ -15,7 +15,7 @@
 
 <div>
   <a target="_blank" href="https://www.youtube.com/watch?v=T3OJIEels1E">
-    <img height="300px" alt="demo youtube" src="https://github.com/jorgenlt/homify/assets/108831121/c1857263-56d0-44fd-a79c-9866b15ee593" />
+    <img height="300px" alt="demo youtube" src="https://github-production-user-asset-6210df.s3.amazonaws.com/108831121/239347560-c1857263-56d0-44fd-a79c-9866b15ee593.png" />
   </a>
 </div>
 
@@ -23,7 +23,7 @@
 
 <div>
   <a target="_blank" href="https://vimeo.com/808073105">
-    <img height="500px"  alt="demo vimeo" src="https://github.com/jorgenlt/homify/assets/108831121/efc847e2-0506-4a40-9175-986b0e306df5" />
+    <img height="500px"  alt="demo vimeo" src="https://github-production-user-asset-6210df.s3.amazonaws.com/108831121/239348738-efc847e2-0506-4a40-9175-986b0e306df5.png" />
   </a>
   <img src="https://github.com/jorgenlt/homify/assets/108831121/67043f00-efe8-48e6-a834-a35fa425b808" height="500px" alt="screenshot mobile" />
 </div>
