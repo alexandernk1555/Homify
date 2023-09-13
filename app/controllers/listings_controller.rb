@@ -5,6 +5,9 @@ class ListingsController < ApplicationController
     # user cannot see and swipe on own listings.
     @listings = Listing.where.not(user_id: current_user.id)
 
+    # If a search param is present, the method will retrieve any listings that match the 
+    # attribute values (if any) specified by the Search model.
+    # The results of the query are then assigned to @listings.
     if params[:search].present?
       @search = Search.find(params[:search])
 
@@ -54,6 +57,8 @@ class ListingsController < ApplicationController
 
       @listings = @listings.where(bedrooms: params[:bedrooms]) if params[:bedrooms].present?
     end
+    
+    # for creating the maps in the info windows
     @markers = @listings.geocoded.map do |listing|
       {
         lat: listing.latitude,
